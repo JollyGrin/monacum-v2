@@ -45,9 +45,9 @@ function buildNoiseGrid(): Float32Array {
   const grid = new Float32Array(GRID_COLS * GRID_ROWS)
   for (let y = 0; y < GRID_ROWS; y++) {
     for (let x = 0; x < GRID_COLS; x++) {
-      const spatial = fbm(x * 0.15, y * 0.15)
+      const spatial = fbm(x * 0.12, y * 0.12)
       const random = hash2d(x + 3, y + 7)
-      grid[y * GRID_COLS + x] = spatial * 0.4 + random * 0.6
+      grid[y * GRID_COLS + x] = spatial * 0.75 + random * 0.25
     }
   }
   let min = Infinity, max = -Infinity
