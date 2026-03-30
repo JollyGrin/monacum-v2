@@ -15,17 +15,14 @@ function LogoModel({ phase }: { phase: "appear" | "spin" | "settle" | "exit" }) 
   const groupRef = useRef<THREE.Group>(null)
   const rotationSpeed = useRef(3)
 
-  useFrame((state, delta) => {
+  useFrame((_, delta) => {
     if (groupRef.current) {
       if (phase === "appear") {
-        // Fast initial spin
         groupRef.current.rotation.y += delta * rotationSpeed.current
         rotationSpeed.current = Math.max(rotationSpeed.current - delta * 0.5, 0.8)
       } else if (phase === "spin") {
-        // Steady rotation
         groupRef.current.rotation.y += delta * 0.8
       } else if (phase === "settle" || phase === "exit") {
-        // Slow to a stop
         rotationSpeed.current = Math.max(rotationSpeed.current - delta * 2, 0.3)
         groupRef.current.rotation.y += delta * rotationSpeed.current
       }
@@ -50,7 +47,7 @@ function GoldenRing({ delay, size, speed }: { delay: number; size: number; speed
     return () => clearTimeout(timer)
   }, [delay])
 
-  useFrame((state, delta) => {
+  useFrame((_, delta) => {
     if (ringRef.current && visible) {
       ringRef.current.rotation.x += delta * speed
       ringRef.current.rotation.z += delta * speed * 0.5
@@ -60,7 +57,7 @@ function GoldenRing({ delay, size, speed }: { delay: number; size: number; speed
   if (!visible) return null
 
   return (
-    <mesh ref={ringRef}>
+    <mesh ref={ringRef} renderOrder={-1} position={[0, 0, -0.5]}>
       <torusGeometry args={[size, 0.01, 16, 100]} />
       <meshStandardMaterial
         color="#D4A96A"
@@ -68,6 +65,7 @@ function GoldenRing({ delay, size, speed }: { delay: number; size: number; speed
         roughness={0.1}
         transparent
         opacity={0.4}
+        depthWrite={false}
       />
     </mesh>
   )
@@ -77,7 +75,6 @@ export function LogoGoldenReveal({ onComplete }: LogoGoldenRevealProps) {
   const [phase, setPhase] = useState<"appear" | "spin" | "settle" | "exit" | "done">("appear")
 
   useEffect(() => {
-    // Phase transitions
     const timers = [
       setTimeout(() => setPhase("spin"), 600),
       setTimeout(() => setPhase("settle"), 2200),
@@ -103,77 +100,55 @@ export function LogoGoldenReveal({ onComplete }: LogoGoldenRevealProps) {
       {phase !== "done" && (
         <motion.div
           className="fixed inset-0 z-[100]"
-          initial={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 0.3 }}
+          animate={phase === "exit" ? { y: "-100%" } : { y: 0 }}
+          transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
         >
-          {/* Gradient background that scales down and moves */}
-          <motion.div 
+          {/* Dark gradient background */}
+          <div
             className="absolute inset-0"
-            style={{ 
+            style={{
               background: "radial-gradient(ellipse at center, #2a2318 0%, #1a1612 50%, #0d0b09 100%)"
             }}
-            animate={phase === "exit" ? { 
-              opacity: 0,
-              scale: 0.95
-            } : {}}
-            transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
           />
-          
-          {/* 3D Scene - shrinks and moves to top-left */}
-          <motion.div
-            className="absolute"
-            initial={{ 
-              top: "0", 
-              left: "0", 
-              width: "100vw",
-              height: "100vh"
-            }}
-            animate={phase === "exit" ? { 
-              top: "2.25rem",
-              left: "1.5rem", 
-              width: "3rem",
-              height: "3rem",
-              opacity: 0
-            } : {}}
-            transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
-          >
+
+          {/* 3D Scene */}
+          <div className="absolute inset-0">
             <Canvas
               camera={{ position: [0, 0, 3], fov: 45 }}
               gl={{ antialias: true }}
             >
               <ambientLight intensity={0.3} />
-              <spotLight 
-                position={[5, 5, 5]} 
-                angle={0.3} 
-                penumbra={1} 
+              <spotLight
+                position={[5, 5, 5]}
+                angle={0.3}
+                penumbra={1}
                 intensity={1.5}
-                color="#D4A96A" 
+                color="#D4A96A"
               />
-              <spotLight 
-                position={[-5, -5, 5]} 
-                angle={0.3} 
-                penumbra={1} 
+              <spotLight
+                position={[-5, -5, 5]}
+                angle={0.3}
+                penumbra={1}
                 intensity={0.8}
-                color="#FAF7F2" 
+                color="#FAF7F2"
               />
               <Suspense fallback={null}>
                 <LogoModel phase={phase} />
-                <GoldenRing delay={0.2} size={0.4} speed={0.3} />
-                <GoldenRing delay={0.4} size={0.55} speed={-0.2} />
-                <GoldenRing delay={0.6} size={0.7} speed={0.15} />
+                <GoldenRing delay={0.2} size={0.5} speed={0.3} />
+                <GoldenRing delay={0.4} size={0.7} speed={-0.2} />
+                <GoldenRing delay={0.6} size={0.9} speed={0.15} />
                 <Environment preset="sunset" />
               </Suspense>
             </Canvas>
-          </motion.div>
-          
+          </div>
+
           {/* Text - fades up and out */}
           <motion.div
             className="absolute inset-0 flex flex-col items-center justify-end pb-24 pointer-events-none"
             initial={{ opacity: 0, y: 30 }}
-            animate={{ 
-              opacity: phase === "exit" ? 0 : (phase === "appear" ? 0 : 1), 
-              y: phase === "exit" ? -40 : 0 
+            animate={{
+              opacity: phase === "exit" ? 0 : (phase === "appear" ? 0 : 1),
+              y: phase === "exit" ? -40 : 0
             }}
             transition={{ delay: phase === "appear" ? 0.8 : 0, duration: 0.6 }}
           >
@@ -185,7 +160,7 @@ export function LogoGoldenReveal({ onComplete }: LogoGoldenRevealProps) {
                 animate={{ width: phase === "exit" ? 0 : 200 }}
                 transition={{ delay: 1, duration: 0.8 }}
               />
-              <span 
+              <span
                 className="text-3xl tracking-[0.5em] font-light"
                 style={{ color: "#D4A96A", fontFamily: "var(--font-playfair)" }}
               >

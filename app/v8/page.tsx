@@ -22,12 +22,8 @@ export default function V8Page() {
   return (
     <>
       <LogoGoldenReveal onComplete={() => setIntroComplete(true)} />
-      
-      <div 
-        className={`transition-opacity duration-700 ${
-          introComplete ? "opacity-100" : "opacity-0"
-        }`}
-      >
+
+      <div>
         <Header />
         <main>
           <HeroSection />
