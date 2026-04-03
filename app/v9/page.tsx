@@ -1,6 +1,7 @@
 "use client"
 
 import { useState } from "react"
+import { motion } from "framer-motion"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import { HeroSection } from "@/components/home/hero-section"
@@ -14,16 +15,20 @@ import { BautraegerTeaser } from "@/components/home/bautraeger-teaser"
 import { ManagingDirectors } from "@/components/home/managing-directors"
 import { TestimonialsSection } from "@/components/home/testimonials-section"
 import { ContactSection } from "@/components/home/contact-section"
-import { LogoZoomThrough } from "@/components/intros/logo-zoom-through"
+import { Logo3D } from "@/components/intros/logo-3d"
 
-export default function V7Page() {
+export default function V9Page() {
   const [introComplete, setIntroComplete] = useState(false)
 
   return (
     <>
-      <LogoZoomThrough onComplete={() => setIntroComplete(true)} />
-      
-      <div>
+      <Logo3D onComplete={() => setIntroComplete(true)} />
+
+      <motion.div
+        initial={{ y: 80, opacity: 0 }}
+        animate={introComplete ? { y: 0, opacity: 1 } : {}}
+        transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+      >
         <Header />
         <main>
           <HeroSection />
@@ -39,7 +44,7 @@ export default function V7Page() {
           <ContactSection />
         </main>
         <Footer />
-      </div>
+      </motion.div>
     </>
   )
 }
