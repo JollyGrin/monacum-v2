@@ -7,6 +7,8 @@ import { motion } from "framer-motion"
 import { TextureLoader, DoubleSide, SRGBColorSpace } from "three"
 import type { Mesh, Points } from "three"
 
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH || ""
+
 // --- Golden particle dust ---
 
 function ParticleField() {
@@ -54,7 +56,7 @@ function ParticleField() {
 // --- 3D Spinning Logo ---
 
 function SpinningLogo() {
-  const texture = useLoader(TextureLoader, "/images/monacum-logo.png")
+  const texture = useLoader(TextureLoader, `${basePath}/images/monacum-logo.png`)
   const meshRef = useRef<Mesh>(null)
   const scaleRef = useRef(0)
 

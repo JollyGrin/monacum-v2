@@ -32,6 +32,8 @@ jobs:
       - run: pnpm install --frozen-lockfile
 
       - run: pnpm build
+        env:
+          NEXT_PUBLIC_BASE_PATH: /monacum-v2
 
       - uses: actions/configure-pages@v5
 
