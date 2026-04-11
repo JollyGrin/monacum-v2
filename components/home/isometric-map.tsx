@@ -12,7 +12,7 @@ export function IsometricMap() {
 
   useEffect(() => {
     if (!mapContainer.current || map.current) return
-    const munichCenter: [number, number] = [11.576, 48.137]
+    const munichCenter: [number, number] = [11.571, 48.1374]
 
     map.current = new maplibregl.Map({
       container: mapContainer.current,
@@ -20,7 +20,7 @@ export function IsometricMap() {
       center: munichCenter,
       zoom: 16,
       pitch: 60,
-      bearing: -20,
+      bearing: 60,
       interactive: false,
       attributionControl: false,
       canvasContextAttributes: { antialias: true },
@@ -112,7 +112,7 @@ export function IsometricMap() {
       )
 
       let startTimestamp: number | null = null
-      const initialBearing = -20
+      const initialBearing = 60
 
       function rotateCamera(timestamp: number) {
         if (!map.current) {
