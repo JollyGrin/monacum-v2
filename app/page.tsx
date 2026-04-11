@@ -25,8 +25,7 @@ export default function HomePage() {
       <Logo3D onComplete={() => setIntroComplete(true)} />
 
       <motion.div
-        initial={{ y: 80, opacity: 0 }}
-        animate={introComplete ? { y: 0, opacity: 1 } : {}}
+        animate={introComplete ? { y: 0 } : { y: 20 }}
         transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
       >
         <Header />
