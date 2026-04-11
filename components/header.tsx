@@ -6,6 +6,8 @@ import { useState } from "react"
 import { Menu, X, ExternalLink } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH || ""
+
 const navigation = [
   { name: "Home", href: "/" },
   { name: "WEG-Verwaltung", href: "/weg-verwaltung" },
@@ -25,7 +27,7 @@ export function Header() {
           {/* Logo */}
           <Link href="/" className="flex items-center gap-3">
             <Image
-              src="/images/monacum-logo.png"
+              src={`${basePath}/images/monacum-logo.png`}
               alt="Monacum Immobilien"
               width={48}
               height={48}

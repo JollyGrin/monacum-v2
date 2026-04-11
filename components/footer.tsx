@@ -2,6 +2,8 @@ import Link from "next/link"
 import Image from "next/image"
 import { ExternalLink } from "lucide-react"
 
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH || ""
+
 const mainNavigation = [
   { name: "Home", href: "/" },
   { name: "WEG-Verwaltung", href: "/weg-verwaltung" },
@@ -32,7 +34,7 @@ export function Footer() {
           <div className="lg:col-span-1">
             <Link href="/" className="inline-flex items-center gap-3">
               <Image
-                src="/images/monacum-logo.png"
+                src={`${basePath}/images/monacum-logo.png`}
                 alt="Monacum Immobilien"
                 width={40}
                 height={40}
