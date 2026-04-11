@@ -111,29 +111,30 @@ export function IsometricMap() {
         labelLayerId
       )
 
+      let startTimestamp: number | null = null
+      const initialBearing = -20
+
       function rotateCamera(timestamp: number) {
         if (!map.current) {
           animationFrameRef.current = null
           return
         }
         try {
-          // Check if map is fully loaded before rotating
           const mapInstance = map.current
           if (mapInstance.isStyleLoaded() && mapInstance.getStyle() && mapInstance.loaded()) {
-            mapInstance.rotateTo((timestamp / 1000) * 3 % 360, { duration: 0 })
+            if (startTimestamp === null) startTimestamp = timestamp
+            const elapsed = timestamp - startTimestamp
+            mapInstance.rotateTo(initialBearing + (elapsed / 1000) * 3, { duration: 0 })
           }
           animationFrameRef.current = requestAnimationFrame(rotateCamera)
         } catch {
-          // Stop rotation if map is disposed or has errors
           animationFrameRef.current = null
         }
       }
 
-        setTimeout(() => {
-          if (map.current) {
-            animationFrameRef.current = requestAnimationFrame(rotateCamera)
-          }
-        }, 3000)
+        if (map.current) {
+          animationFrameRef.current = requestAnimationFrame(rotateCamera)
+        }
         setLoaded(true)
       } catch {
         setLoaded(true)
