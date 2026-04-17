@@ -99,26 +99,28 @@ function SpinningLogo() {
 
 interface Logo3DProps {
   onComplete: () => void
+  holdMs?: number
+  exitMs?: number
 }
 
-export function Logo3D({ onComplete }: Logo3DProps) {
+export function Logo3D({ onComplete, holdMs = 2500, exitMs = 900 }: Logo3DProps) {
   const [phase, setPhase] = useState<"hold" | "exit" | "done">("hold")
   const onCompleteRef = useRef(onComplete)
   onCompleteRef.current = onComplete
 
   // Hold then start exit
   useEffect(() => {
-    const timer = setTimeout(() => setPhase("exit"), 2500)
+    const timer = setTimeout(() => setPhase("exit"), holdMs)
     return () => clearTimeout(timer)
-  }, [])
+  }, [holdMs])
 
   // Signal content to start animating as soon as exit begins
   useEffect(() => {
     if (phase !== "exit") return
     onCompleteRef.current()
-    const timer = setTimeout(() => setPhase("done"), 900)
+    const timer = setTimeout(() => setPhase("done"), exitMs)
     return () => clearTimeout(timer)
-  }, [phase])
+  }, [phase, exitMs])
 
   if (phase === "done") return null
 
@@ -127,7 +129,7 @@ export function Logo3D({ onComplete }: Logo3DProps) {
       className="fixed inset-0 z-[100]"
       initial={{ y: 0 }}
       animate={{ y: phase === "exit" ? "-100%" : 0 }}
-      transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
+      transition={{ duration: exitMs / 1000, ease: [0.22, 1, 0.36, 1] }}
       style={{ pointerEvents: phase === "exit" ? "none" : "auto" }}
     >
       <div
