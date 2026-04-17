@@ -108,7 +108,7 @@ export function Logo3D({ onComplete }: Logo3DProps) {
 
   // Hold then start exit
   useEffect(() => {
-    const timer = setTimeout(() => setPhase("exit"), 2000)
+    const timer = setTimeout(() => setPhase("exit"), 2500)
     return () => clearTimeout(timer)
   }, [])
 
