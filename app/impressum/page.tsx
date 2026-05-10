@@ -31,8 +31,8 @@ export default function ImpressumPage() {
               Vertreten durch
             </h2>
             <p className="text-muted-foreground leading-relaxed mt-4">
-              Maximilian Reichenbächer<br />
-              Michael Hödl
+              Michael Werner Hödl<br />
+              Maximilian Reichenbächer
             </p>
 
             <h2 className="font-serif text-xl font-medium text-foreground mt-8">
@@ -44,12 +44,11 @@ export default function ImpressumPage() {
             </p>
 
             <h2 className="font-serif text-xl font-medium text-foreground mt-8">
-              Registereintrag
+              Handelsregister
             </h2>
             <p className="text-muted-foreground leading-relaxed mt-4">
-              Eintragung im Handelsregister.<br />
-              Registergericht: [Registergericht]<br />
-              Registernummer: [HRB XXXXX]
+              Registergericht: Amtsgericht München<br />
+              Registernummer: HRB 296091
             </p>
 
             <h2 className="font-serif text-xl font-medium text-foreground mt-8">
@@ -57,7 +56,7 @@ export default function ImpressumPage() {
             </h2>
             <p className="text-muted-foreground leading-relaxed mt-4">
               Umsatzsteuer-Identifikationsnummer gemäß §27 a Umsatzsteuergesetz:<br />
-              [DE XXXXXXXXX]
+              DE407392777
             </p>
 
             <h2 className="font-serif text-xl font-medium text-foreground mt-8">
@@ -65,6 +64,7 @@ export default function ImpressumPage() {
             </h2>
             <p className="text-muted-foreground leading-relaxed mt-4">
               Berufsbezeichnung: Immobilienverwalter<br />
+              Berufserlaubnis: Genehmigung gemäß § 34c GewO<br />
               Zuständige Kammer: IHK für München und Oberbayern
             </p>
 
