@@ -171,7 +171,7 @@ export function Logo3D({ onComplete, holdMs = 2500, exitMs = 900 }: Logo3DProps)
         </span>
         <span
           className="text-sm tracking-[0.2em] mt-2 opacity-60"
-          style={{ color: "#D4A96A" }}
+          style={{ color: "#D4A96A", fontFamily: "var(--font-playfair)" }}
         >
           IMMOBILIENVERWALTUNG
         </span>
