@@ -180,7 +180,7 @@ export function WEGContactForm() {
                       <SelectItem value="asap">So bald wie möglich</SelectItem>
                       <SelectItem value="3months">In den nächsten 3 Monaten</SelectItem>
                       <SelectItem value="6months">In den nächsten 6 Monaten</SelectItem>
-                      <SelectItem value="12months">Innerhalb eines Jahres</SelectItem>
+                      <SelectItem value="next-jan-1">Zum nächsten 01.01. des kommenden Jahres</SelectItem>
                       <SelectItem value="flexible">Flexibel</SelectItem>
                     </SelectContent>
                   </Select>

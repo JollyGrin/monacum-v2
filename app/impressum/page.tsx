@@ -39,8 +39,8 @@ export default function ImpressumPage() {
               Kontakt
             </h2>
             <p className="text-muted-foreground leading-relaxed mt-4">
-              Telefon: +49 89 XXX XXX XX<br />
-              E-Mail: info@monacum.de
+              Telefon: 089 890467430<br />
+              E-Mail: info@monacum-immobilien.de
             </p>
 
             <h2 className="font-serif text-xl font-medium text-foreground mt-8">

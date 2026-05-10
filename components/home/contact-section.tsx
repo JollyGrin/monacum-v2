@@ -38,8 +38,8 @@ export function ContactSection() {
                 <div>
                   <h3 className="font-medium text-foreground">Telefon</h3>
                   <p className="mt-1 text-muted-foreground">
-                    <a href="tel:+4989XXXXXXXX" className="hover:text-foreground transition-colors">
-                      +49 89 XXX XXX XX
+                    <a href="tel:+4989890467430" className="hover:text-foreground transition-colors">
+                      089 890467430
                     </a>
                   </p>
                 </div>
@@ -52,8 +52,8 @@ export function ContactSection() {
                 <div>
                   <h3 className="font-medium text-foreground">E-Mail</h3>
                   <p className="mt-1 text-muted-foreground">
-                    <a href="mailto:info@monacum.de" className="hover:text-foreground transition-colors">
-                      info@monacum.de
+                    <a href="mailto:info@monacum-immobilien.de" className="hover:text-foreground transition-colors">
+                      info@monacum-immobilien.de
                     </a>
                   </p>
                 </div>

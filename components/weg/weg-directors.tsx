@@ -1,6 +1,9 @@
+import Image from "next/image"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { ArrowRight } from "lucide-react"
+
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH || ""
 
 export function WEGDirectors() {
   return (
@@ -40,18 +43,34 @@ export function WEGDirectors() {
           </div>
 
           <div className="grid grid-cols-2 gap-6">
-            <div className="aspect-[3/4] rounded-lg bg-background border border-border flex items-center justify-center">
-              <div className="text-center p-4">
-                <span className="font-serif text-3xl font-medium text-primary/30">MH</span>
-                <p className="mt-2 text-sm text-muted-foreground">Michael Hödl</p>
+            <figure>
+              <div className="aspect-[3/4] rounded-lg border border-border overflow-hidden bg-background">
+                <Image
+                  src={`${basePath}/michi.jpg`}
+                  alt="Michael Hödl"
+                  width={600}
+                  height={800}
+                  className="h-full w-full object-cover object-top"
+                />
               </div>
-            </div>
-            <div className="aspect-[3/4] rounded-lg bg-background border border-border flex items-center justify-center mt-8">
-              <div className="text-center p-4">
-                <span className="font-serif text-3xl font-medium text-primary/30">MR</span>
-                <p className="mt-2 text-sm text-muted-foreground">Maximilian Reichenbächer</p>
+              <figcaption className="mt-3 text-center text-sm text-muted-foreground">
+                Michael Hödl
+              </figcaption>
+            </figure>
+            <figure className="mt-8">
+              <div className="aspect-[3/4] rounded-lg border border-border overflow-hidden bg-background">
+                <Image
+                  src={`${basePath}/max.jpg`}
+                  alt="Maximilian Reichenbächer"
+                  width={600}
+                  height={800}
+                  className="h-full w-full object-cover object-top"
+                />
               </div>
-            </div>
+              <figcaption className="mt-3 text-center text-sm text-muted-foreground">
+                Maximilian Reichenbächer
+              </figcaption>
+            </figure>
           </div>
         </div>
       </div>

@@ -52,8 +52,8 @@ export default function DatenschutzPage() {
               Monacum Immobilienverwaltung GmbH<br />
               Boschstr. 12<br />
               82178 Puchheim<br /><br />
-              Telefon: +49 89 XXX XXX XX<br />
-              E-Mail: info@monacum.de
+              Telefon: 089 890467430<br />
+              E-Mail: info@monacum-immobilien.de
             </p>
 
             <h2 className="font-serif text-xl font-medium text-foreground mt-8">

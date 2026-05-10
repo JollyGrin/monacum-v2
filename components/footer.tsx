@@ -51,10 +51,10 @@ export function Footer() {
               Boschstr. 12<br />
               82178 Puchheim<br />
               <span className="mt-4 block">
-                Tel: <a href="tel:+4989XXXXXXXX" className="hover:text-foreground transition-colors">+49 89 XXX XXX XX</a>
+                Tel: <a href="tel:+4989890467430" className="hover:text-foreground transition-colors">089 890467430</a>
               </span>
               <span className="block">
-                E-Mail: <a href="mailto:info@monacum.de" className="hover:text-foreground transition-colors">info@monacum.de</a>
+                E-Mail: <a href="mailto:info@monacum-immobilien.de" className="hover:text-foreground transition-colors">info@monacum-immobilien.de</a>
               </span>
             </address>
           </div>
