@@ -1,6 +1,9 @@
+import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
+
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
 
 const wegBenefits = [
   "Erfahrene WEG-Verwalter mit mehr als 10 Jahren Praxiserfahrung",
@@ -50,17 +53,14 @@ export function WEGFocusSection() {
           </div>
 
           <div className="relative">
-            <div className="aspect-[4/3] rounded-lg bg-secondary/50 border border-border overflow-hidden">
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="text-center p-8">
-                  <p className="font-serif text-6xl font-medium text-primary/20">
-                    WEG
-                  </p>
-                  <p className="mt-2 text-sm text-muted-foreground">
-                    Verwaltung mit Kompetenz
-                  </p>
-                </div>
-              </div>
+            <div className="aspect-[4/3] rounded-lg border border-border overflow-hidden">
+              <Image
+                src={`${basePath}/atdesk.jpg`}
+                alt="WEG-Verwaltung mit Kompetenz"
+                width={1200}
+                height={900}
+                className="h-full w-full object-cover"
+              />
             </div>
             {/* Decorative element */}
             <div className="absolute -bottom-4 -right-4 w-24 h-24 bg-primary/10 rounded-lg -z-10" />

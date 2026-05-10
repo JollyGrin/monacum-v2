@@ -1,6 +1,9 @@
+import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
+
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
 
 export function BautraegerTeaser() {
   return (
@@ -39,6 +42,20 @@ export function BautraegerTeaser() {
                 </Link>
               </Button>
             </div>
+          </div>
+
+          <div className="relative order-2 lg:order-1">
+            <div className="aspect-[4/3] rounded-lg border border-border overflow-hidden">
+              <Image
+                src={`${basePath}/cars.jpg`}
+                alt="Partner für Ihren Projekterfolg"
+                width={1200}
+                height={900}
+                className="h-full w-full object-cover"
+              />
+            </div>
+            {/* Decorative element */}
+            <div className="absolute -bottom-4 -left-4 w-24 h-24 bg-primary/10 rounded-lg -z-10" />
           </div>
         </div>
       </div>
