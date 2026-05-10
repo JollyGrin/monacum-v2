@@ -7,18 +7,14 @@ export function IntroSection() {
             Qualität statt Quantität. Persönlich statt anonym.
           </h2>
           <p className="mt-6 text-lg text-muted-foreground leading-relaxed">
-            Monacum steht für eine neue Generation der Immobilienverwaltung: Wir verbinden 
-            persönliche Verantwortung mit digitaler Effizienz. Unsere Mandanten schätzen 
-            die direkte Kommunikation mit den Geschäftsführern und die strukturierte 
-            Abwicklung aller Verwaltungsaufgaben.
-          </p>
-          <p className="mt-4 text-lg text-muted-foreground leading-relaxed">
-            Mit Sitz in Puchheim betreuen wir Immobilien in München und ausgewählten 
-            Umlandgemeinden – mit dem Anspruch, für jedes Mandat die bestmögliche 
-            Betreuung zu gewährleisten.
+            Monacum steht für eine neue Generation der Immobilienverwaltung: Wir
+            verbinden persönliche Verantwortung mit digitaler Effizienz. Unsere
+            Mandanten schätzen die direkte Kommunikation mit den
+            Geschäftsführern und die strukturierte Abwicklung aller
+            Verwaltungsaufgaben.
           </p>
         </div>
       </div>
     </section>
-  )
+  );
 }

@@ -16,9 +16,9 @@ export function HeroSection() {
           </h1>
 
           <p className="mt-8 text-lg text-muted-foreground leading-relaxed max-w-2xl">
-            Premium Immobilienverwaltung für München und ausgewählte
-            Umlandgemeinden. Persönlich geführt, digital organisiert, fachlich
-            kompetent.
+            Immobilienverwaltung mit Verantwortung, Struktur und persönlichem
+            Ansprechpartner. Für WEGs, Eigentümer und Bauträger in München und
+            ausgewählten Umlandgemeinden.
           </p>
 
           <div className="mt-10 flex flex-col sm:flex-row gap-4">
