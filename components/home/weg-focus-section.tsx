@@ -1,6 +1,6 @@
-import Link from "next/link"
-import { Button } from "@/components/ui/button"
-import { ArrowRight, CheckCircle2 } from "lucide-react"
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
+import { ArrowRight, CheckCircle2 } from "lucide-react";
 
 const wegBenefits = [
   "Erfahrene WEG-Verwalter mit mehr als 10 Jahren Praxiserfahrung",
@@ -9,7 +9,7 @@ const wegBenefits = [
   "Transparente Abrechnung und strukturierte Dokumentation",
   "Digitale Eigentümerportale für zeitgemäße Kommunikation",
   "Reibungsloser Übernahmeprozess bei Verwalterwechsel",
-]
+];
 
 export function WEGFocusSection() {
   return (
@@ -24,15 +24,10 @@ export function WEGFocusSection() {
               WEG-Verwaltung auf höchstem Niveau
             </h2>
             <p className="mt-6 text-lg text-muted-foreground leading-relaxed">
-              Die Verwaltung von Wohnungseigentümergemeinschaften ist unsere Kernkompetenz. 
-              Wir verstehen die besonderen Anforderungen, die sich aus der Struktur einer 
-              WEG ergeben, und bieten Lösungen, die Eigentümern, Beiräten und Bewohnern 
-              gleichermaßen zugutekommen.
-            </p>
-            <p className="mt-4 text-muted-foreground leading-relaxed">
-              Mit einem Geschäftsführer, der mehr als ein Jahrzehnt Erfahrung in der 
-              WEG-Verwaltung mitbringt, sind wir Ihr Partner für anspruchsvolle 
-              Eigentümergemeinschaften.
+              Die Verwaltung von Wohnungseigentümergemeinschaften ist unsere
+              Kernkompetenz. Wir verstehen die besonderen Anforderungen, die
+              sich aus der Struktur einer WEG ergeben, und bieten Lösungen, die
+              Eigentümern, Beiräten und Bewohnern gleichermaßen zugutekommen.
             </p>
 
             <ul className="mt-8 space-y-3">
@@ -58,8 +53,12 @@ export function WEGFocusSection() {
             <div className="aspect-[4/3] rounded-lg bg-secondary/50 border border-border overflow-hidden">
               <div className="absolute inset-0 flex items-center justify-center">
                 <div className="text-center p-8">
-                  <p className="font-serif text-6xl font-medium text-primary/20">WEG</p>
-                  <p className="mt-2 text-sm text-muted-foreground">Verwaltung mit Kompetenz</p>
+                  <p className="font-serif text-6xl font-medium text-primary/20">
+                    WEG
+                  </p>
+                  <p className="mt-2 text-sm text-muted-foreground">
+                    Verwaltung mit Kompetenz
+                  </p>
                 </div>
               </div>
             </div>
@@ -69,5 +68,5 @@ export function WEGFocusSection() {
         </div>
       </div>
     </section>
-  )
+  );
 }
