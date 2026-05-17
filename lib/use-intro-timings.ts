@@ -1,6 +1,6 @@
 "use client"
 
-import { useEffect, useState, useCallback } from "react"
+import { useEffect, useState } from "react"
 
 export interface IntroTimings {
   logoHold: number
@@ -42,29 +42,5 @@ export function useIntroTimings() {
     setReady(true)
   }, [])
 
-  const update = useCallback((next: Partial<IntroTimings>) => {
-    setTimings((prev) => {
-      const merged = { ...prev, ...next }
-      const p = new URLSearchParams(window.location.search)
-      const set = (key: string, value: number, fallback: number) => {
-        if (value === fallback) p.delete(key)
-        else p.set(key, String(value))
-      }
-      set("hold", merged.logoHold, DEFAULT_TIMINGS.logoHold)
-      set("exit", merged.logoExit, DEFAULT_TIMINGS.logoExit)
-      set("slide", merged.contentSlideDuration, DEFAULT_TIMINGS.contentSlideDuration)
-      set("dist", merged.contentSlideDistance, DEFAULT_TIMINGS.contentSlideDistance)
-      const qs = p.toString()
-      const url = qs ? `${window.location.pathname}?${qs}` : window.location.pathname
-      window.history.replaceState(null, "", url)
-      return merged
-    })
-  }, [])
-
-  return { timings, update, ready }
-}
-
-export function isDebugEnabled() {
-  if (typeof window === "undefined") return false
-  return new URLSearchParams(window.location.search).has("debug")
+  return { timings, ready }
 }

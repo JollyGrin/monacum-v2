@@ -1,7 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import dynamic from "next/dynamic";
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
@@ -14,38 +13,19 @@ import { WEGFocusSection } from "@/components/home/weg-focus-section";
 import { ProcessSection } from "@/components/home/process-section";
 import { BautraegerTeaser } from "@/components/home/bautraeger-teaser";
 import { ManagingDirectors } from "@/components/home/managing-directors";
-import { TestimonialsSection } from "@/components/home/testimonials-section";
 import { ContactSection } from "@/components/home/contact-section";
 import { Logo3D } from "@/components/intros/logo-3d";
-import { useIntroTimings, isDebugEnabled } from "@/lib/use-intro-timings";
-
-const TimingControls = dynamic(
-  () =>
-    import("@/components/debug/timing-controls").then((m) => m.TimingControls),
-  { ssr: false },
-);
+import { useIntroTimings } from "@/lib/use-intro-timings";
 
 export default function HomePage() {
-  const { timings, update, ready } = useIntroTimings();
+  const { timings, ready } = useIntroTimings();
   const [introComplete, setIntroComplete] = useState(false);
-  const [introKey, setIntroKey] = useState(0);
-  const [debug, setDebug] = useState(false);
-
-  useEffect(() => {
-    setDebug(isDebugEnabled());
-  }, []);
 
   if (!ready) return null;
-
-  const replay = () => {
-    setIntroComplete(false);
-    setIntroKey((k) => k + 1);
-  };
 
   return (
     <>
       <Logo3D
-        key={introKey}
         onComplete={() => setIntroComplete(true)}
         holdMs={timings.logoHold}
         exitMs={timings.logoExit}
@@ -69,15 +49,10 @@ export default function HomePage() {
           <ProcessSection />
           <BautraegerTeaser />
           <ManagingDirectors />
-          {/* <TestimonialsSection /> */}
           <ContactSection />
         </main>
         <Footer />
       </motion.div>
-
-      {debug && (
-        <TimingControls timings={timings} onChange={update} onReplay={replay} />
-      )}
     </>
   );
 }
