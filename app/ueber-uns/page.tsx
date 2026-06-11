@@ -27,7 +27,7 @@ const directors = [
   {
     name: "Maximilian Reichenbächer",
     initials: "MR",
-    image: "/max.jpg",
+    image: "/max.webp",
     background: [
       "Erfahrung in der Projektentwicklung",
       "Mandantenbetreuung bei einem geschlossenen Fondsverwalter",
@@ -39,7 +39,7 @@ const directors = [
   {
     name: "Michael Hödl",
     initials: "MH",
-    image: "/michi.jpg",
+    image: "/michi.webp",
     background: [
       "Immobilienfachwirt (IHK)",
       "Über zehn Jahre in der WEG-Verwaltung",
@@ -252,7 +252,7 @@ export default function UeberUnsPage() {
               <div className="mt-12 flex flex-col sm:flex-row items-center justify-center gap-10 sm:gap-16">
                 <div className="flex items-center justify-center h-20">
                   <Image
-                    src={`${basePath}/VDIV_Logo_Bayern_2019.jpg`}
+                    src={`${basePath}/vdiv-logo.webp`}
                     alt="VDIV Bayern"
                     width={320}
                     height={160}
@@ -262,7 +262,7 @@ export default function UeberUnsPage() {
                 <div className="hidden sm:block h-12 w-px bg-border" />
                 <div className="flex items-center justify-center h-20">
                   <Image
-                    src={`${basePath}/huidgrund.jpg`}
+                    src={`${basePath}/huidgrund.webp`}
                     alt="Haus & Grund München"
                     width={320}
                     height={160}
