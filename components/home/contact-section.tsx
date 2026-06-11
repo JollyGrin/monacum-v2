@@ -1,6 +1,7 @@
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
-import { ArrowRight, MapPin, Phone, Mail } from "lucide-react"
+import { ArrowRight, MapPin, Phone, Mail, Clock } from "lucide-react"
+import { NextStepsList } from "@/components/shared/next-steps"
 
 export function ContactSection() {
   return (
@@ -70,34 +71,26 @@ export function ContactSection() {
             </div>
           </div>
 
-          <div className="bg-secondary/50 rounded-lg p-8 lg:p-12 border border-border">
+          <div className="bg-secondary/50 rounded-lg p-8 lg:p-12 border border-border flex flex-col">
             <h3 className="font-serif text-xl font-medium text-foreground">
               Was passiert nach Ihrer Anfrage?
             </h3>
-            <div className="mt-6 space-y-4">
-              <div className="flex gap-4">
-                <span className="flex-shrink-0 w-6 h-6 rounded-full bg-primary/10 flex items-center justify-center text-sm font-medium text-primary">
-                  1
-                </span>
-                <p className="text-muted-foreground">
-                  Wir prüfen Ihre Anfrage und melden uns innerhalb von zwei Werktagen.
-                </p>
-              </div>
-              <div className="flex gap-4">
-                <span className="flex-shrink-0 w-6 h-6 rounded-full bg-primary/10 flex items-center justify-center text-sm font-medium text-primary">
-                  2
-                </span>
-                <p className="text-muted-foreground">
-                  In einem persönlichen Gespräch klären wir Ihre Anforderungen.
-                </p>
-              </div>
-              <div className="flex gap-4">
-                <span className="flex-shrink-0 w-6 h-6 rounded-full bg-primary/10 flex items-center justify-center text-sm font-medium text-primary">
-                  3
-                </span>
-                <p className="text-muted-foreground">
-                  Sie erhalten ein individuelles Angebot ohne versteckte Kosten.
-                </p>
+            <div className="mt-6">
+              <NextStepsList />
+            </div>
+
+            <div className="mt-8 pt-8 border-t border-border/70">
+              <div className="flex items-start gap-4">
+                <div className="flex-shrink-0 p-2.5 rounded-lg bg-background">
+                  <Clock className="h-5 w-5 text-primary" />
+                </div>
+                <div>
+                  <h4 className="font-medium text-foreground">Bürozeiten</h4>
+                  <p className="mt-1 text-muted-foreground">
+                    Montag – Freitag, 9:00 – 17:00 Uhr<br />
+                    Termine nach Vereinbarung
+                  </p>
+                </div>
               </div>
             </div>
           </div>
