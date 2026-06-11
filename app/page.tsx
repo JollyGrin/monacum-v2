@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import dynamic from "next/dynamic";
 import { motion } from "framer-motion";
 import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
@@ -11,28 +12,38 @@ import { ServicesOverview } from "@/components/home/services-overview";
 import { WhyMonacum } from "@/components/home/why-monacum";
 import { WEGFocusSection } from "@/components/home/weg-focus-section";
 import { ProcessSection } from "@/components/home/process-section";
-import { BautraegerTeaser } from "@/components/home/bautraeger-teaser";
 import { ManagingDirectors } from "@/components/home/managing-directors";
 import { ContactSection } from "@/components/home/contact-section";
-import { Logo3D } from "@/components/intros/logo-3d";
 import { useIntroTimings } from "@/lib/use-intro-timings";
 
+// Loaded on demand so three.js stays out of the initial bundle –
+// especially for returning visitors who never see the intro.
+const Logo3D = dynamic(
+  () => import("@/components/intros/logo-3d").then((m) => m.Logo3D),
+  { ssr: false }
+);
+
 export default function HomePage() {
-  const { timings, ready } = useIntroTimings();
+  const { timings, ready, shouldPlay } = useIntroTimings();
   const [introComplete, setIntroComplete] = useState(false);
 
   if (!ready) return null;
 
+  const contentSettled = introComplete || !shouldPlay;
+
   return (
     <>
-      <Logo3D
-        onComplete={() => setIntroComplete(true)}
-        holdMs={timings.logoHold}
-        exitMs={timings.logoExit}
-      />
+      {shouldPlay && (
+        <Logo3D
+          onComplete={() => setIntroComplete(true)}
+          holdMs={timings.logoHold}
+          exitMs={timings.logoExit}
+        />
+      )}
 
       <motion.div
-        animate={introComplete ? { y: 0 } : { y: timings.contentSlideDistance }}
+        initial={false}
+        animate={contentSettled ? { y: 0 } : { y: timings.contentSlideDistance }}
         transition={{
           duration: timings.contentSlideDuration / 1000,
           ease: [0.22, 1, 0.36, 1],
@@ -47,7 +58,6 @@ export default function HomePage() {
           <WhyMonacum />
           <WEGFocusSection />
           <ProcessSection />
-          <BautraegerTeaser />
           <ManagingDirectors />
           <ContactSection />
         </main>
