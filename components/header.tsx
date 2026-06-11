@@ -60,7 +60,7 @@ export function Header() {
               rel="noopener noreferrer"
               className="flex items-center gap-1 text-xs text-muted-foreground hover:text-foreground transition-colors"
             >
-              Casavi Login
+              Kundenportal
               <ExternalLink className="h-3 w-3" />
             </a>
             <Button asChild size="sm" className="font-medium">
@@ -104,7 +104,7 @@ export function Header() {
                   rel="noopener noreferrer"
                   className="flex items-center gap-1 text-sm text-muted-foreground hover:text-foreground transition-colors"
                 >
-                  Casavi Login
+                  Kundenportal
                   <ExternalLink className="h-3 w-3" />
                 </a>
                 <Button asChild className="w-full font-medium">

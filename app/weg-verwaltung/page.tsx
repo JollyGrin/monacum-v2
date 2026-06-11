@@ -9,7 +9,6 @@ import { WEGSwitchReasons } from "@/components/weg/weg-switch-reasons";
 import { WEGTakeover } from "@/components/weg/weg-takeover";
 import { WEGTrust } from "@/components/weg/weg-trust";
 import { WEGDirectors } from "@/components/weg/weg-directors";
-import { WEGTestimonials } from "@/components/weg/weg-testimonials";
 import { WEGContactForm } from "@/components/weg/weg-contact-form";
 
 export const metadata: Metadata = {
@@ -33,7 +32,6 @@ export default function WEGVerwaltungPage() {
         <WEGTakeover />
         <WEGTrust />
         <WEGDirectors />
-        {/* <WEGTestimonials /> */}
         <WEGContactForm />
       </main>
       <Footer />

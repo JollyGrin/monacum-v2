@@ -114,18 +114,30 @@ export function Footer() {
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-1 text-sm text-muted-foreground hover:text-foreground transition-colors"
                 >
-                  Casavi Login
+                  Kundenportal (Casavi)
                   <ExternalLink className="h-3 w-3" />
                 </a>
               </li>
             </ul>
-            
+
             <div className="mt-8">
               <h3 className="text-sm font-semibold text-foreground">Mitgliedschaften</h3>
-              <p className="mt-3 text-sm text-muted-foreground">
-                VDIV Bayern<br />
-                Haus & Grund München
-              </p>
+              <div className="mt-3 flex flex-col gap-3">
+                <Image
+                  src={`${basePath}/vdiv-logo.webp`}
+                  alt="VDIV Bayern – Verband der Immobilienverwalter"
+                  width={136}
+                  height={81}
+                  className="h-10 w-auto object-contain"
+                />
+                <Image
+                  src={`${basePath}/huidgrund.webp`}
+                  alt="Haus & Grund München"
+                  width={160}
+                  height={21}
+                  className="h-5 w-auto object-contain"
+                />
+              </div>
             </div>
           </div>
         </div>
