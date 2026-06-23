@@ -9,22 +9,34 @@ export function IsometricMap() {
   const map = useRef<maplibregl.Map | null>(null)
   const animationFrameRef = useRef<number | null>(null)
   const [loaded, setLoaded] = useState(false)
+  const [failed, setFailed] = useState(false)
 
   useEffect(() => {
     if (!mapContainer.current || map.current) return
     const munichCenter: [number, number] = [11.571, 48.1374]
+    const prefersReducedMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    ).matches
 
-    map.current = new maplibregl.Map({
-      container: mapContainer.current,
-      style: "https://tiles.openfreemap.org/styles/bright",
-      center: munichCenter,
-      zoom: 16,
-      pitch: 60,
-      bearing: 60,
-      interactive: false,
-      attributionControl: false,
-      canvasContextAttributes: { antialias: true },
-    })
+    try {
+      map.current = new maplibregl.Map({
+        container: mapContainer.current,
+        style: "https://tiles.openfreemap.org/styles/bright",
+        center: munichCenter,
+        zoom: 16,
+        pitch: 60,
+        bearing: 60,
+        interactive: false,
+        attributionControl: false,
+        canvasContextAttributes: { antialias: true },
+      })
+    } catch {
+      // WebGL not available (old hardware, privacy browsers, VMs) –
+      // fall back to the static backdrop instead of crashing the page.
+      setFailed(true)
+      setLoaded(true)
+      return
+    }
 
     // Suppress missing image warnings with transparent placeholder
     map.current.on("styleimagemissing", (e) => {
@@ -132,7 +144,7 @@ export function IsometricMap() {
         }
       }
 
-        if (map.current) {
+        if (map.current && !prefersReducedMotion) {
           animationFrameRef.current = requestAnimationFrame(rotateCamera)
         }
         setLoaded(true)
@@ -160,6 +172,15 @@ export function IsometricMap() {
         className="absolute inset-0 h-full w-full"
         style={{ minHeight: "100%" }}
       />
+      {failed && (
+        <div
+          className="absolute inset-0"
+          style={{
+            background:
+              "radial-gradient(ellipse at 75% 40%, oklch(0.92 0.03 75) 0%, oklch(0.95 0.015 80) 45%, oklch(0.985 0.008 85) 100%)",
+          }}
+        />
+      )}
       <div className="absolute inset-0 bg-gradient-to-r from-background via-background/90 to-background/60" />
       <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-background/40" />
       {!loaded && <div className="absolute inset-0 animate-pulse bg-secondary/50" />}

@@ -2,9 +2,6 @@
 const nextConfig = {
   output: 'export',
   basePath: process.env.GITHUB_ACTIONS ? '/monacum-v2' : '',
-  typescript: {
-    ignoreBuildErrors: true,
-  },
   images: {
     unoptimized: true,
   },

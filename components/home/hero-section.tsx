@@ -1,7 +1,20 @@
+"use client";
+
 import Link from "next/link";
+import dynamic from "next/dynamic";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
-import { IsometricMap } from "./isometric-map";
+
+// maplibre-gl is heavy – load it after the critical content.
+const IsometricMap = dynamic(
+  () => import("./isometric-map").then((m) => m.IsometricMap),
+  {
+    ssr: false,
+    loading: () => (
+      <div className="absolute inset-0 animate-pulse bg-secondary/50" />
+    ),
+  }
+);
 
 export function HeroSection() {
   return (

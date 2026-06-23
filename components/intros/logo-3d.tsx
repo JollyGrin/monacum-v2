@@ -25,7 +25,7 @@ function ParticleField() {
     return arr
   }, [])
 
-  useFrame((state, delta) => {
+  useFrame((_, delta) => {
     if (ref.current) {
       ref.current.rotation.y += delta * 0.03
       ref.current.rotation.x += delta * 0.01
@@ -37,9 +37,7 @@ function ParticleField() {
       <bufferGeometry>
         <bufferAttribute
           attach="attributes-position"
-          count={count}
-          array={positions}
-          itemSize={3}
+          args={[positions, 3]}
         />
       </bufferGeometry>
       <pointsMaterial
@@ -110,9 +108,28 @@ export function Logo3D({ onComplete, holdMs = 2500, exitMs = 900 }: Logo3DProps)
 
   // Hold then start exit
   useEffect(() => {
-    const timer = setTimeout(() => setPhase("exit"), holdMs)
+    const timer = setTimeout(
+      () => setPhase((p) => (p === "hold" ? "exit" : p)),
+      holdMs
+    )
     return () => clearTimeout(timer)
   }, [holdMs])
+
+  // Allow skipping at any time via click, key, scroll or touch
+  useEffect(() => {
+    if (phase !== "hold") return
+    const skip = () => setPhase((p) => (p === "hold" ? "exit" : p))
+    window.addEventListener("pointerdown", skip)
+    window.addEventListener("keydown", skip)
+    window.addEventListener("wheel", skip, { passive: true })
+    window.addEventListener("touchstart", skip, { passive: true })
+    return () => {
+      window.removeEventListener("pointerdown", skip)
+      window.removeEventListener("keydown", skip)
+      window.removeEventListener("wheel", skip)
+      window.removeEventListener("touchstart", skip)
+    }
+  }, [phase])
 
   // Signal content to start animating as soon as exit begins
   useEffect(() => {
@@ -176,6 +193,20 @@ export function Logo3D({ onComplete, holdMs = 2500, exitMs = 900 }: Logo3DProps)
           IMMOBILIENVERWALTUNG
         </span>
       </motion.div>
+
+      {/* Skip affordance */}
+      <motion.button
+        type="button"
+        onClick={() => setPhase((p) => (p === "hold" ? "exit" : p))}
+        className="absolute bottom-8 right-8 text-xs tracking-[0.15em] uppercase opacity-50 hover:opacity-100 transition-opacity"
+        style={{ color: "#D4A96A" }}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 0.5 }}
+        transition={{ delay: 0.8 }}
+        aria-label="Intro überspringen"
+      >
+        Überspringen
+      </motion.button>
     </motion.div>
   )
 }

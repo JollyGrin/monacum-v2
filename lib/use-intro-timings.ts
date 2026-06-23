@@ -33,14 +33,44 @@ function readFromUrl(): IntroTimings {
   }
 }
 
+const INTRO_SEEN_KEY = "monacum-intro-seen"
+
+function readShouldPlay(): boolean {
+  if (typeof window === "undefined") return false
+  // Explicit timing params force a replay (used for tuning the intro).
+  const params = new URLSearchParams(window.location.search)
+  const forced = ["hold", "exit", "slide", "dist", "intro"].some((k) =>
+    params.has(k)
+  )
+  if (forced) return true
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    return false
+  }
+  try {
+    return sessionStorage.getItem(INTRO_SEEN_KEY) === null
+  } catch {
+    return true
+  }
+}
+
 export function useIntroTimings() {
   const [timings, setTimings] = useState<IntroTimings>(DEFAULT_TIMINGS)
   const [ready, setReady] = useState(false)
+  const [shouldPlay, setShouldPlay] = useState(false)
 
   useEffect(() => {
     setTimings(readFromUrl())
+    const play = readShouldPlay()
+    setShouldPlay(play)
+    if (play) {
+      try {
+        sessionStorage.setItem(INTRO_SEEN_KEY, "1")
+      } catch {
+        // Private mode without storage – intro will just replay.
+      }
+    }
     setReady(true)
   }, [])
 
-  return { timings, ready }
+  return { timings, ready, shouldPlay }
 }

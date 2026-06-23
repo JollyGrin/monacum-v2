@@ -46,7 +46,10 @@ export function ContactForm() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-    // In production, this would submit to a backend
+    // TODO: Anfragen werden aktuell NICHT übermittelt – es ist noch kein
+    // Versand-Service angebunden (z.B. Formspree, Web3Forms oder eigener
+    // Endpoint). Solange das fehlt, gehen Formulardaten verloren; die
+    // Erfolgsmeldung unten ist nur UI. Vor Launch zwingend anbinden.
     setSubmitted(true)
   }
 
@@ -62,7 +65,7 @@ export function ContactForm() {
         <p className="mt-4 text-muted-foreground leading-relaxed">
           Wir haben Ihre Nachricht erhalten und melden uns innerhalb von zwei 
           Werktagen bei Ihnen. Bei dringenden Anliegen erreichen Sie uns auch 
-          telefonisch unter +49 89 XXX XXX XX.
+          telefonisch unter 089 890467430.
         </p>
       </div>
     )

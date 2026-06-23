@@ -14,6 +14,7 @@ import {
   SelectValue,
 } from "@/components/ui/select"
 import { CheckCircle2 } from "lucide-react"
+import { NextStepsList } from "@/components/shared/next-steps"
 
 export function WEGContactForm() {
   const [submitted, setSubmitted] = useState(false)
@@ -30,7 +31,10 @@ export function WEGContactForm() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-    // In production, this would submit to a backend
+    // TODO: Anfragen werden aktuell NICHT übermittelt – es ist noch kein
+    // Versand-Service angebunden (z.B. Formspree, Web3Forms oder eigener
+    // Endpoint). Solange das fehlt, gehen Formulardaten verloren; die
+    // Erfolgsmeldung unten ist nur UI. Vor Launch zwingend anbinden.
     setSubmitted(true)
   }
 
@@ -67,36 +71,11 @@ export function WEGContactForm() {
               ein individuelles Angebot. Die Anfrage ist unverbindlich und kostenfrei.
             </p>
 
-            <div className="mt-10 space-y-6">
-              <div>
-                <h3 className="font-medium text-foreground">Was passiert nach Ihrer Anfrage?</h3>
-                <ul className="mt-4 space-y-3">
-                  <li className="flex items-start gap-3">
-                    <span className="flex-shrink-0 w-6 h-6 rounded-full bg-primary/10 flex items-center justify-center text-sm font-medium text-primary">
-                      1
-                    </span>
-                    <span className="text-muted-foreground">
-                      Wir prüfen Ihre Anfrage und melden uns innerhalb von zwei Werktagen.
-                    </span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <span className="flex-shrink-0 w-6 h-6 rounded-full bg-primary/10 flex items-center justify-center text-sm font-medium text-primary">
-                      2
-                    </span>
-                    <span className="text-muted-foreground">
-                      In einem persönlichen Gespräch klären wir Ihre Anforderungen.
-                    </span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <span className="flex-shrink-0 w-6 h-6 rounded-full bg-primary/10 flex items-center justify-center text-sm font-medium text-primary">
-                      3
-                    </span>
-                    <span className="text-muted-foreground">
-                      Sie erhalten ein transparentes Angebot ohne versteckte Kosten.
-                    </span>
-                  </li>
-                </ul>
-              </div>
+            <div className="mt-10">
+              <h3 className="font-medium text-foreground mb-4">
+                Was passiert nach Ihrer Anfrage?
+              </h3>
+              <NextStepsList />
             </div>
           </div>
 

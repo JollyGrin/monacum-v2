@@ -46,7 +46,7 @@ export function WEGDirectors() {
             <figure>
               <div className="aspect-[3/4] rounded-lg border border-border overflow-hidden bg-background">
                 <Image
-                  src={`${basePath}/michi.jpg`}
+                  src={`${basePath}/michi.webp`}
                   alt="Michael Hödl"
                   width={600}
                   height={800}
@@ -60,7 +60,7 @@ export function WEGDirectors() {
             <figure className="mt-8">
               <div className="aspect-[3/4] rounded-lg border border-border overflow-hidden bg-background">
                 <Image
-                  src={`${basePath}/max.jpg`}
+                  src={`${basePath}/max.webp`}
                   alt="Maximilian Reichenbächer"
                   width={600}
                   height={800}
