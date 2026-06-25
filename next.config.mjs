@@ -1,7 +1,9 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   output: 'export',
-  basePath: process.env.GITHUB_ACTIONS ? '/monacum-v2' : '',
+  // Served at the root of the custom domain (monacum-immobilien.de),
+  // so no basePath/asset prefix. NEXT_PUBLIC_BASE_PATH stays unset too.
+  basePath: process.env.NEXT_PUBLIC_BASE_PATH || '',
   images: {
     unoptimized: true,
   },
