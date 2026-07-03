@@ -67,7 +67,8 @@ export function ContactInfo() {
           <div>
             <h3 className="font-medium text-foreground">Bürozeiten</h3>
             <p className="mt-1 text-muted-foreground">
-              Montag – Freitag: 9:00 – 17:00 Uhr<br />
+              Montag – Donnerstag: 09:00 – 17:00 Uhr<br />
+              Freitag: 09:00 – 14:00 Uhr<br />
               <span className="text-sm">Termine nach Vereinbarung</span>
             </p>
           </div>

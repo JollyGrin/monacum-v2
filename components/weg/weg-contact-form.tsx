@@ -31,10 +31,26 @@ export function WEGContactForm() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-    // TODO: Anfragen werden aktuell NICHT übermittelt – es ist noch kein
-    // Versand-Service angebunden (z.B. Formspree, Web3Forms oder eigener
-    // Endpoint). Solange das fehlt, gehen Formulardaten verloren; die
-    // Erfolgsmeldung unten ist nur UI. Vor Launch zwingend anbinden.
+
+    // Interim solution: static site without a backend – the submission is
+    // handed off to the visitor's own mail client via a prefilled mailto link.
+    // Replace with a proper send service later.
+    const lines: string[] = [
+      `Name: ${formData.name}`,
+      `E-Mail: ${formData.email}`,
+    ]
+    if (formData.phone) lines.push(`Telefon: ${formData.phone}`)
+    if (formData.units) lines.push(`Anzahl Einheiten: ${formData.units}`)
+    if (formData.currentManager)
+      lines.push(`Aktueller Verwalter: ${formData.currentManager}`)
+    if (formData.desiredStart)
+      lines.push(`Gewünschter Starttermin: ${formData.desiredStart}`)
+    if (formData.message) lines.push("", "Nachricht:", formData.message)
+
+    window.location.href = `mailto:info@monacum-immobilien.de?subject=${encodeURIComponent(
+      "Angebotsanfrage WEG-Verwaltung über die Website"
+    )}&body=${encodeURIComponent(lines.join("\n"))}`
+
     setSubmitted(true)
   }
 
@@ -49,9 +65,8 @@ export function WEGContactForm() {
             Vielen Dank für Ihre Anfrage
           </h2>
           <p className="mt-4 text-lg text-muted-foreground">
-            Wir haben Ihre Nachricht erhalten und melden uns innerhalb von zwei 
-            Werktagen bei Ihnen. Bei dringenden Anliegen erreichen Sie uns auch 
-            telefonisch.
+            Wir haben Ihre Nachricht erhalten und melden uns zeitnah bei Ihnen.
+            Bei dringenden Anliegen erreichen Sie uns auch telefonisch.
           </p>
         </div>
       </section>
@@ -185,8 +200,9 @@ export function WEGContactForm() {
                   required
                 />
                 <Label htmlFor="privacy" className="text-sm text-muted-foreground leading-relaxed">
-                  Ich habe die Datenschutzerklärung gelesen und bin mit der Verarbeitung 
-                  meiner Daten zur Bearbeitung meiner Anfrage einverstanden. *
+                  Ich habe die Datenschutzerklärung zur Kenntnis genommen. Die
+                  mit * gekennzeichneten Angaben sind erforderlich, damit wir
+                  Ihre Anfrage bearbeiten können.
                 </Label>
               </div>
 

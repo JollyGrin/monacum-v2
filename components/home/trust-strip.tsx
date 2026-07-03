@@ -9,7 +9,7 @@ const trustItems = [
   {
     icon: Users,
     value: "10+",
-    label: "Jahre Erfahrung je Geschäftsführer",
+    label: "Jahre Erfahrung",
   },
   {
     icon: Award,

@@ -1,13 +1,10 @@
 import { Metadata } from "next"
-import Image from "next/image"
 import Link from "next/link"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { CheckCircle2, ArrowRight, FileText, Users, ClipboardCheck, Building2, Calendar, Shield } from "lucide-react"
-
-const basePath = process.env.NEXT_PUBLIC_BASE_PATH || ""
 
 export const metadata: Metadata = {
   title: "Bauträgerbetreuung München | Monacum Immobilienverwaltung",
@@ -18,7 +15,7 @@ const services = [
   {
     icon: FileText,
     title: "WEG-Erstverwaltung",
-    description: "Übernahme der Verwaltung ab Teilungserklärung und Gründung der WEG. Strukturierte Aufstellung aller notwendigen Prozesse.",
+    description: "Übernahme der Verwaltung ab Gründung der WEG. Strukturierte Aufstellung aller notwendigen Prozesse.",
   },
   {
     icon: Users,
@@ -92,42 +89,26 @@ export default function BautraegerPage() {
         {/* Hero */}
         <section className="py-20 lg:py-28 bg-background">
           <div className="mx-auto max-w-7xl px-6 lg:px-8">
-            <div className="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-16 items-center">
-              <div className="max-w-3xl">
-                <p className="text-sm font-medium tracking-wide text-primary uppercase mb-6">
-                  Für Bauträger
-                </p>
-                <h1 className="font-serif text-4xl font-medium tracking-tight text-foreground sm:text-5xl leading-[1.1] text-balance">
-                  Ihr Partner für den erfolgreichen Projektabschluss
-                </h1>
-                <p className="mt-6 text-lg text-muted-foreground leading-relaxed">
-                  Als Bauträger wissen Sie: Die Übergabe an die Eigentümer und die Gründung
-                  der WEG sind kritische Phasen. Mit der richtigen Verwaltung an Ihrer Seite
-                  gelingt dieser Übergang reibungslos – und Ihre Käufer sind von Anfang an
-                  gut betreut.
-                </p>
-                <div className="mt-8">
-                  <Button asChild size="lg" className="font-medium">
-                    <Link href="/kontakt">
-                      Angebot anfragen
-                      <ArrowRight className="ml-2 h-4 w-4" />
-                    </Link>
-                  </Button>
-                </div>
-              </div>
-
-              <div className="relative hidden lg:block">
-                <div className="aspect-[4/3] rounded-lg border border-border overflow-hidden">
-                  <Image
-                    src={`${basePath}/cars.webp`}
-                    alt="Monacum vor Ort beim Bauträgerprojekt"
-                    width={1200}
-                    height={900}
-                    className="h-full w-full object-cover"
-                    priority
-                  />
-                </div>
-                <div className="absolute -bottom-4 -left-4 w-24 h-24 bg-primary/10 rounded-lg -z-10" />
+            <div className="max-w-3xl">
+              <p className="text-sm font-medium tracking-wide text-primary uppercase mb-6">
+                Für Bauträger
+              </p>
+              <h1 className="font-serif text-4xl font-medium tracking-tight text-foreground sm:text-5xl leading-[1.1] text-balance">
+                Ihr Partner für den erfolgreichen Projektabschluss
+              </h1>
+              <p className="mt-6 text-lg text-muted-foreground leading-relaxed">
+                Als Bauträger wissen Sie: Die Übergabe an die Eigentümer und die Gründung
+                der WEG sind kritische Phasen. Mit der richtigen Verwaltung an Ihrer Seite
+                gelingt dieser Übergang reibungslos – und Ihre Käufer sind von Anfang an
+                gut betreut.
+              </p>
+              <div className="mt-8">
+                <Button asChild size="lg" className="font-medium">
+                  <Link href="/kontakt">
+                    Angebot anfragen
+                    <ArrowRight className="ml-2 h-4 w-4" />
+                  </Link>
+                </Button>
               </div>
             </div>
           </div>
@@ -142,9 +123,9 @@ export default function BautraegerPage() {
                   Erfahrung, die zählt
                 </h2>
                 <p className="mt-6 text-lg text-muted-foreground leading-relaxed">
-                  Unser Geschäftsführer Maximilian Reichenbächer bringt Erfahrung aus dem 
-                  Projektentwicklungsumfeld mit. Er versteht die Anforderungen, die Bauträger 
-                  an eine professionelle Verwaltung stellen – von der strukturierten 
+                  Unsere Geschäftsführer bringen Erfahrung aus dem
+                  Projektentwicklungsumfeld mit. Sie verstehen die Anforderungen, die Bauträger
+                  an eine professionelle Verwaltung stellen – von der strukturierten
                   Dokumentation bis zur kompetenten Betreuung anspruchsvoller Käufer.
                 </p>
                 <p className="mt-4 text-muted-foreground leading-relaxed">

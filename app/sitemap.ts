@@ -13,6 +13,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "/leistungen/sondereigentumsverwaltung", priority: 0.7 },
     { path: "/bautraeger", priority: 0.7 },
     { path: "/ueber-uns", priority: 0.6 },
+    { path: "/faq", priority: 0.6 },
     { path: "/kontakt", priority: 0.8 },
     { path: "/impressum", priority: 0.1 },
     { path: "/datenschutz", priority: 0.1 },

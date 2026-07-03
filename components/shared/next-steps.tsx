@@ -3,13 +3,13 @@ export const NEXT_STEPS = [
     number: "1",
     title: "Prüfung Ihrer Anfrage",
     description:
-      "Wir prüfen Ihre Angaben und melden uns innerhalb von zwei Werktagen bei Ihnen.",
+      "Wir prüfen Ihre Angaben und melden uns zeitnah bei Ihnen.",
   },
   {
     number: "2",
-    title: "Persönliches Gespräch",
+    title: "Persönlicher vor Ort Termin",
     description:
-      "In einem persönlichen Gespräch klären wir Ihre Anforderungen.",
+      "In einem persönlichen Gespräch klären wir Ihre Anforderungen und lernen Ihre Liegenschaft kennen.",
   },
   {
     number: "3",

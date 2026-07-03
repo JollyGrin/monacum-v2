@@ -1,9 +1,12 @@
 import { Metadata } from "next"
+import Image from "next/image"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import { ContactForm } from "@/components/contact/contact-form"
 import { ContactInfo } from "@/components/contact/contact-info"
 import { WhatHappensNext } from "@/components/contact/what-happens-next"
+
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH || ""
 
 export const metadata: Metadata = {
   title: "Kontakt | Monacum Immobilienverwaltung",
@@ -26,10 +29,24 @@ export default function KontaktPage() {
                 Sprechen Sie mit uns
               </h1>
               <p className="mt-6 text-lg text-muted-foreground leading-relaxed">
-                Sie haben Fragen zu unseren Leistungen oder möchten ein Angebot für Ihre 
-                Immobilie erhalten? Füllen Sie das Formular aus oder kontaktieren Sie uns 
+                Sie haben Fragen zu unseren Leistungen oder möchten ein Angebot für Ihre
+                Immobilie erhalten? Füllen Sie das Formular aus oder kontaktieren Sie uns
                 direkt – wir melden uns zeitnah bei Ihnen.
               </p>
+
+              <div className="relative mt-12">
+                <div className="aspect-[16/9] rounded-lg border border-border overflow-hidden">
+                  <Image
+                    src={`${basePath}/cars.webp`}
+                    alt="Monacum vor Ort im Einsatz"
+                    width={1200}
+                    height={675}
+                    className="h-full w-full object-cover"
+                    priority
+                  />
+                </div>
+                <div className="absolute -bottom-4 -left-4 w-24 h-24 bg-primary/10 rounded-lg -z-10" />
+              </div>
             </div>
           </div>
         </section>

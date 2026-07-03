@@ -9,9 +9,8 @@ export function IntroSection() {
           <p className="mt-6 text-lg text-muted-foreground leading-relaxed">
             Monacum steht für eine neue Generation der Immobilienverwaltung: Wir
             verbinden persönliche Verantwortung mit digitaler Effizienz. Unsere
-            Mandanten schätzen die direkte Kommunikation mit den
-            Geschäftsführern und die strukturierte Abwicklung aller
-            Verwaltungsaufgaben.
+            Kunden schätzen die direkte Kommunikation und die strukturierte
+            Abwicklung aller Verwaltungsaufgaben.
           </p>
         </div>
       </div>

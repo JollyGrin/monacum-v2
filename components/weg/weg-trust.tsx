@@ -1,4 +1,4 @@
-import { Building2, Users, Award, MapPin, Laptop, Network } from "lucide-react"
+import { Building2, Users, Award, MapPin, Laptop, Network, BadgeCheck } from "lucide-react"
 
 const trustFactors = [
   {
@@ -9,7 +9,12 @@ const trustFactors = [
   {
     icon: Users,
     value: "10+",
-    label: "Jahre WEG-Erfahrung des Geschäftsführers",
+    label: "Jahre WEG Erfahrung",
+  },
+  {
+    icon: BadgeCheck,
+    value: "§ 26a WEG",
+    label: "Zertifizierter Verwalter – Qualifikation als zertifizierter Verwalter gemäß § 26a WEG",
   },
   {
     icon: Award,
@@ -46,9 +51,12 @@ export function WEGTrust() {
           </p>
         </div>
 
-        <div className="grid grid-cols-2 gap-8 md:grid-cols-3 lg:grid-cols-6">
+        <div className="flex flex-wrap justify-center gap-x-8 gap-y-10">
           {trustFactors.map((factor) => (
-            <div key={factor.label} className="text-center">
+            <div
+              key={factor.label}
+              className="text-center w-[calc(50%-1rem)] md:w-[calc(33.333%-1.34rem)] lg:w-[calc(25%-1.5rem)]"
+            >
               <div className="mx-auto w-12 h-12 rounded-lg bg-secondary flex items-center justify-center">
                 <factor.icon className="h-6 w-6 text-primary" />
               </div>

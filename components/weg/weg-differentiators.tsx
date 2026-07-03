@@ -5,7 +5,7 @@ const differentiators = [
   {
     icon: UserCheck,
     title: "Persönliche Verantwortung",
-    description: "Direkter Kontakt zu den Geschäftsführern. Ihr Anliegen landet nicht in der Warteschleife einer anonymen Sachbearbeitung.",
+    description: "Direkter Kontakt zu den Objektbetreuern. Ihr Anliegen landet nicht in der Warteschleife einer anonymen Sachbearbeitung.",
   },
   {
     icon: MessageSquare,

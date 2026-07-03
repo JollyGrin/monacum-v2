@@ -18,7 +18,7 @@ const directors = [
     name: "Michael Hödl",
     focus: "WEG-Verwaltung und Objektbetreuung",
     description:
-      "Michael Hödl verfügt über langjährige Erfahrung in der WEG-Verwaltung und bringt umfassende praktische Expertise in die operative Betreuung von Immobilien ein.",
+      "Michael Hödl verfügt über langjährige Erfahrung in der Immobilienverwaltung und bringt umfassende praktische Expertise in die operative Betreuung von Immobilien ein.",
     initials: "MH",
     image: "/michi.webp",
   },
@@ -45,8 +45,8 @@ export function ManagingDirectors() {
             Persönlich geführt
           </h2>
           <p className="mt-4 text-lg text-[#B5A78F] max-w-2xl mx-auto">
-            Bei Monacum sprechen Sie direkt mit den Geschäftsführern – keine
-            anonyme Sachbearbeitung, sondern persönliche Verantwortung.
+            Keine anonyme Sachbearbeitung, sondern persönliche Verantwortung auf
+            Geschäftsführungsebene.
           </p>
         </div>
 

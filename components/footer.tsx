@@ -10,6 +10,7 @@ const mainNavigation = [
   { name: "Leistungen", href: "/leistungen" },
   { name: "Bauträger", href: "/bautraeger" },
   { name: "Über uns", href: "/ueber-uns" },
+  { name: "FAQ", href: "/faq" },
   { name: "Kontakt", href: "/kontakt" },
 ]
 
@@ -45,7 +46,7 @@ export function Footer() {
               </span>
             </Link>
             <p className="mt-4 text-sm text-muted-foreground leading-relaxed">
-              Immobilienverwaltung
+              Monacum Immobilienverwaltung GmbH
             </p>
             <address className="mt-6 not-italic text-sm text-muted-foreground leading-relaxed">
               Boschstr. 12<br />
@@ -122,7 +123,7 @@ export function Footer() {
 
             <div className="mt-8">
               <h3 className="text-sm font-semibold text-foreground">Mitgliedschaften</h3>
-              <div className="mt-3 flex flex-col gap-3">
+              <div className="mt-3 flex flex-col items-center gap-3">
                 <Image
                   src={`${basePath}/vdiv-logo.webp`}
                   alt="VDIV Bayern – Verband der Immobilienverwalter"

@@ -14,6 +14,7 @@ const navigation = [
   { name: "Leistungen", href: "/leistungen" },
   { name: "Bauträger", href: "/bautraeger" },
   { name: "Über uns", href: "/ueber-uns" },
+  { name: "FAQ", href: "/faq" },
   { name: "Kontakt", href: "/kontakt" },
 ]
 
@@ -40,7 +41,7 @@ export function Header() {
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden lg:flex lg:items-center lg:gap-x-10">
+          <div className="hidden lg:flex lg:items-center lg:gap-x-7">
             {navigation.map((item) => (
               <Link
                 key={item.name}

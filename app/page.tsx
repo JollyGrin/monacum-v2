@@ -13,6 +13,7 @@ import { WhyMonacum } from "@/components/home/why-monacum";
 import { WEGFocusSection } from "@/components/home/weg-focus-section";
 import { ProcessSection } from "@/components/home/process-section";
 import { ManagingDirectors } from "@/components/home/managing-directors";
+import { FaqSection } from "@/components/faq/faq-section";
 import { ContactSection } from "@/components/home/contact-section";
 import { useIntroTimings } from "@/lib/use-intro-timings";
 
@@ -59,6 +60,7 @@ export default function HomePage() {
           <WEGFocusSection />
           <ProcessSection />
           <ManagingDirectors />
+          <FaqSection />
           <ContactSection />
         </main>
         <Footer />

@@ -31,7 +31,7 @@ export function HeroSection() {
           <p className="mt-8 text-lg text-muted-foreground leading-relaxed max-w-2xl">
             Immobilienverwaltung mit Verantwortung, Struktur und persönlichem
             Ansprechpartner. Für WEGs, Eigentümer und Bauträger in München und
-            ausgewählten Umlandgemeinden.
+            Umgebung.
           </p>
 
           <div className="mt-10 flex flex-col sm:flex-row gap-4">

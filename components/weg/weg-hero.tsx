@@ -18,9 +18,9 @@ export function WEGHero() {
           </h1>
           
           <p className="mt-8 text-lg text-muted-foreground leading-relaxed max-w-2xl">
-            Persönlich geführt, digital organisiert, fachlich kompetent – WEG-Verwaltung, 
-            die den Unterschied macht. Für Eigentümergemeinschaften in München und 
-            ausgewählten Umlandgemeinden.
+            Persönlich geführt, digital organisiert, fachlich kompetent – WEG-Verwaltung,
+            die den Unterschied macht. Für Eigentümergemeinschaften in München und
+            Umgebung.
           </p>
           
           <div className="mt-10 flex flex-col sm:flex-row gap-4">

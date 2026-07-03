@@ -51,7 +51,7 @@ const differentiators = [
   {
     icon: UserCheck,
     title: "Persönliche Betreuung",
-    description: "Direkter Kontakt zu den Geschäftsführern statt anonymer Hotline.",
+    description: "Direkter Kontakt zu den Objektbetreuern statt anonymer Hotline.",
   },
   {
     icon: Laptop,

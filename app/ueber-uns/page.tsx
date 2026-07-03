@@ -12,7 +12,6 @@ import {
   Laptop,
   Network,
   Building2,
-  Users,
 } from "lucide-react";
 
 const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
@@ -42,6 +41,7 @@ const directors = [
     image: "/michi.webp",
     background: [
       "Immobilienfachwirt (IHK)",
+      "Ausbilder",
       "Über zehn Jahre in der WEG-Verwaltung",
       "Praxiserfahrung in der laufenden Verwaltung",
       "Technische Betreuung der Objekte",
@@ -53,12 +53,6 @@ const directors = [
 ];
 
 const values = [
-  {
-    icon: Users,
-    title: "Persönliche Führung",
-    description:
-      "Bei Monacum sprechen Sie direkt mit den Geschäftsführern. Keine anonyme Sachbearbeitung, sondern persönliche Verantwortung.",
-  },
   {
     icon: Award,
     title: "Qualität vor Quantität",
@@ -87,13 +81,13 @@ const values = [
     icon: MapPin,
     title: "Regionale Verwurzelung",
     description:
-      "Fokussiert auf München und ausgewählte Umlandgemeinden. Wir kennen die Region und ihre Besonderheiten.",
+      "Fokussiert auf München und Umland. Wir kennen die Region und ihre Besonderheiten.",
   },
 ];
 
 const facts = [
   { value: "1.000+", label: "Verwaltete Einheiten" },
-  { value: "10+", label: "Jahre Erfahrung je GF" },
+  { value: "10+", label: "Jahre Erfahrung" },
   { value: "2", label: "Geschäftsführer" },
   { value: "VDIV", label: "Verbandsmitglied" },
 ];

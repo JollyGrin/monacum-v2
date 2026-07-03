@@ -46,10 +46,60 @@ export function ContactForm() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-    // TODO: Anfragen werden aktuell NICHT übermittelt – es ist noch kein
-    // Versand-Service angebunden (z.B. Formspree, Web3Forms oder eigener
-    // Endpoint). Solange das fehlt, gehen Formulardaten verloren; die
-    // Erfolgsmeldung unten ist nur UI. Vor Launch zwingend anbinden.
+
+    // Interim solution: since this is a static site (GitHub Pages) with no
+    // backend, the submission is handed off to the visitor's own mail client
+    // via a prefilled mailto link. Replace with a proper send service later.
+    const inquiryLabels: Record<string, string> = {
+      weg: "WEG-Verwaltung",
+      miethaus: "Miethausverwaltung",
+      sondereigentum: "Sondereigentumsverwaltung",
+      bautraeger: "Bauträger",
+      sonstiges: "Sonstiges",
+    }
+
+    const lines: string[] = [`Name: ${formData.name}`, `E-Mail: ${formData.email}`]
+    if (formData.phone) lines.push(`Telefon: ${formData.phone}`)
+    lines.push(`Art der Anfrage: ${inquiryLabels[inquiryType] || "—"}`)
+
+    if (inquiryType === "weg") {
+      if (formData.wegUnits) lines.push(`Anzahl Einheiten: ${formData.wegUnits}`)
+      if (formData.wegCurrentManager)
+        lines.push(`Aktueller Verwalter: ${formData.wegCurrentManager}`)
+      if (formData.wegDesiredStart)
+        lines.push(`Gewünschter Starttermin: ${formData.wegDesiredStart}`)
+    } else if (inquiryType === "miethaus") {
+      if (formData.miethausPropertyType)
+        lines.push(`Art der Immobilie: ${formData.miethausPropertyType}`)
+      if (formData.miethausUnits)
+        lines.push(`Anzahl Einheiten: ${formData.miethausUnits}`)
+      if (formData.miethausDesiredStart)
+        lines.push(`Gewünschter Starttermin: ${formData.miethausDesiredStart}`)
+    } else if (inquiryType === "sondereigentum") {
+      if (formData.sondereigentumRented)
+        lines.push(`Vermietet: ${formData.sondereigentumRented}`)
+      if (formData.sondereigentumDesiredStart)
+        lines.push(`Gewünschter Starttermin: ${formData.sondereigentumDesiredStart}`)
+    } else if (inquiryType === "bautraeger") {
+      if (formData.bautraegerCompany)
+        lines.push(`Unternehmen: ${formData.bautraegerCompany}`)
+      if (formData.bautraegerLocation)
+        lines.push(`Standort des Projekts: ${formData.bautraegerLocation}`)
+      if (formData.bautraegerProjectType)
+        lines.push(`Art des Projekts: ${formData.bautraegerProjectType}`)
+      if (formData.bautraegerHandoverDate)
+        lines.push(`Voraussichtliche Übergabe: ${formData.bautraegerHandoverDate}`)
+    }
+
+    if (formData.message) lines.push("", "Nachricht:", formData.message)
+
+    const subject = `Anfrage über die Website${
+      inquiryType ? ` – ${inquiryLabels[inquiryType]}` : ""
+    }`
+    window.location.href = `mailto:info@monacum-immobilien.de?subject=${encodeURIComponent(
+      subject
+    )}&body=${encodeURIComponent(lines.join("\n"))}`
+
     setSubmitted(true)
   }
 
@@ -63,9 +113,9 @@ export function ContactForm() {
           Vielen Dank für Ihre Anfrage
         </h2>
         <p className="mt-4 text-muted-foreground leading-relaxed">
-          Wir haben Ihre Nachricht erhalten und melden uns innerhalb von zwei 
-          Werktagen bei Ihnen. Bei dringenden Anliegen erreichen Sie uns auch 
-          telefonisch unter 089 890467430.
+          Wir haben Ihre Nachricht erhalten und melden uns zeitnah bei Ihnen.
+          Bei dringenden Anliegen erreichen Sie uns auch telefonisch unter{" "}
+          <span className="whitespace-nowrap">089 890467430</span>.
         </p>
       </div>
     )
@@ -376,8 +426,9 @@ export function ContactForm() {
             required
           />
           <Label htmlFor="privacy" className="text-sm text-muted-foreground leading-relaxed">
-            Ich habe die Datenschutzerklärung gelesen und bin mit der Verarbeitung 
-            meiner Daten zur Bearbeitung meiner Anfrage einverstanden. *
+            Ich habe die Datenschutzerklärung zur Kenntnis genommen. Die mit *
+            gekennzeichneten Angaben sind erforderlich, damit wir Ihre Anfrage
+            bearbeiten können.
           </Label>
         </div>
 

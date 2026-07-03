@@ -3,8 +3,8 @@ import { UserCheck, Cpu, Wrench, Shield, Network, FileCheck } from "lucide-react
 const differentiators = [
   {
     icon: UserCheck,
-    title: "Persönliche Führung",
-    description: "Direkter Kontakt zu den Geschäftsführern – keine anonyme Sachbearbeitung.",
+    title: "Persönliche Objektbetreuung",
+    description: "Ein fester Ansprechpartner in allen Belangen.",
   },
   {
     icon: Cpu,
@@ -28,8 +28,8 @@ const differentiators = [
   },
   {
     icon: FileCheck,
-    title: "Qualitätsanspruch",
-    description: "Wenige, gut betreute Mandate statt anonymer Massenabfertigung.",
+    title: "All-Inclusive-Angebot",
+    description: "Transparente Gebührenstruktur ohne zusätzliche versteckte Kosten.",
   },
 ]
 
