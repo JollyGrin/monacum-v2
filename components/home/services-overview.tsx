@@ -64,8 +64,8 @@ export function ServicesOverview() {
                         className={`h-6 w-6 ${service.featured ? "text-primary" : "text-muted-foreground"}`}
                       />
                     </div>
-                    <div className="flex-1">
-                      <h3 className="font-serif text-xl font-medium text-foreground group-hover:text-primary transition-colors">
+                    <div className="flex-1 min-w-0">
+                      <h3 lang="de" className="font-serif text-xl font-medium text-foreground group-hover:text-primary transition-colors hyphens-auto break-words">
                         {service.title}
                         {service.featured && (
                           <span className="ml-2 text-xs font-sans font-medium text-primary bg-primary/10 px-2 py-0.5 rounded">
@@ -73,7 +73,7 @@ export function ServicesOverview() {
                           </span>
                         )}
                       </h3>
-                      <p className="mt-2 text-muted-foreground leading-relaxed">
+                      <p lang="de" className="mt-2 text-muted-foreground leading-relaxed hyphens-auto break-words">
                         {service.description}
                       </p>
                       <span className="mt-4 inline-flex items-center text-sm font-medium text-primary group-hover:gap-2 transition-all">

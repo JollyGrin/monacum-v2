@@ -75,7 +75,7 @@ export default function LeistungenPage() {
               <p className="text-sm font-medium tracking-wide text-primary uppercase mb-6">
                 Unsere Leistungen
               </p>
-              <h1 className="font-serif text-4xl font-medium tracking-tight text-foreground sm:text-5xl leading-[1.1] text-balance">
+              <h1 lang="de" className="font-serif text-3xl font-medium tracking-tight text-foreground sm:text-4xl md:text-5xl leading-[1.1] text-balance hyphens-auto break-words">
                 Immobilienverwaltung aus einer Hand
               </h1>
               <p className="mt-6 text-lg text-muted-foreground leading-relaxed">
@@ -99,7 +99,7 @@ export default function LeistungenPage() {
                         <service.icon className={`h-6 w-6 ${service.featured ? 'text-primary' : 'text-muted-foreground'}`} />
                       </div>
                       
-                      <h2 className="mt-6 font-serif text-2xl font-medium text-foreground group-hover:text-primary transition-colors">
+                      <h2 lang="de" className="mt-6 font-serif text-2xl font-medium text-foreground group-hover:text-primary transition-colors hyphens-auto break-words">
                         {service.title}
                         {service.featured && (
                           <span className="ml-3 text-xs font-sans font-medium text-primary bg-primary/10 px-2 py-1 rounded">
@@ -108,13 +108,13 @@ export default function LeistungenPage() {
                         )}
                       </h2>
                       
-                      <p className="mt-4 text-muted-foreground leading-relaxed">
+                      <p lang="de" className="mt-4 text-muted-foreground leading-relaxed hyphens-auto break-words">
                         {service.description}
                       </p>
                       
-                      <ul className="mt-6 grid grid-cols-2 gap-2">
+                      <ul className="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-2">
                         {service.features.map((feature) => (
-                          <li key={feature} className="text-sm text-muted-foreground">
+                          <li key={feature} className="min-w-0 break-words text-sm text-muted-foreground">
                             {feature}
                           </li>
                         ))}
