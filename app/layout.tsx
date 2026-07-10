@@ -17,8 +17,8 @@ const siteUrl = 'https://monacum-immobilien.de'
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
-  title: 'Monacum Immobilienverwaltung | Premium Hausverwaltung München',
-  description: 'Professionelle Immobilienverwaltung für München und Umgebung. Spezialisiert auf WEG-Verwaltung, Mietverwaltung und Bauträgerbetreuung. Persönlich, strukturiert, digital.',
+  title: 'Monacum – Hausverwaltung & WEG-Verwaltung München',
+  description: 'Immobilienverwaltung für München und Umgebung – spezialisiert auf WEG-Verwaltung, Mietverwaltung und Bauträgerbetreuung. Persönlich, strukturiert, digital.',
   keywords: 'Hausverwaltung München, WEG-Verwaltung, Immobilienverwaltung, Mietverwaltung, Bauträger München, Sondereigentumsverwaltung',
   alternates: {
     canonical: './',
@@ -37,21 +37,21 @@ export const metadata: Metadata = {
     locale: 'de_DE',
     url: siteUrl,
     siteName: 'Monacum Immobilienverwaltung',
-    title: 'Monacum Immobilienverwaltung | Premium Hausverwaltung München',
-    description: 'Professionelle Immobilienverwaltung für München und Umgebung. Spezialisiert auf WEG-Verwaltung, Mietverwaltung und Bauträgerbetreuung.',
+    title: 'Monacum – Hausverwaltung & WEG-Verwaltung München',
+    description: 'Hausverwaltung für München und Umgebung: WEG-Verwaltung, Mietverwaltung und Bauträgerbetreuung – persönlich & digital.',
     images: [
       {
         url: '/og-image.jpg',
         width: 1200,
         height: 630,
-        alt: 'Monacum Immobilienverwaltung',
+        alt: 'Monacum Immobilien – Hausverwaltung für München und Umgebung: WEG, Miete, Bauträger',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Monacum Immobilienverwaltung | Premium Hausverwaltung München',
-    description: 'Professionelle Immobilienverwaltung für München und Umgebung.',
+    title: 'Monacum – Hausverwaltung & WEG-Verwaltung München',
+    description: 'Hausverwaltung für München und Umgebung – WEG, Miete & Bauträger, persönlich & digital.',
     images: ['/og-image.jpg'],
   },
 }
