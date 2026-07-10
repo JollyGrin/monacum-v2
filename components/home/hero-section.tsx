@@ -30,11 +30,11 @@ export function HeroSection() {
 
       <div className="relative mx-auto max-w-7xl px-6 py-24 lg:px-8 lg:py-32 z-10">
         <div className="max-w-3xl">
-          <h1 className="font-serif text-4xl font-medium tracking-tight text-foreground sm:text-5xl lg:text-6xl leading-[1.1] text-balance">
+          <h1 lang="de" className="font-serif text-3xl font-medium tracking-tight text-foreground sm:text-4xl md:text-5xl lg:text-6xl leading-[1.1] text-balance hyphens-auto break-words">
             Ihr Immobilienwert in verantwortungsvollen Händen
           </h1>
 
-          <p className="mt-8 text-lg text-muted-foreground leading-relaxed max-w-2xl">
+          <p lang="de" className="mt-8 text-lg text-muted-foreground leading-relaxed max-w-2xl hyphens-auto break-words">
             Immobilienverwaltung mit Verantwortung, Struktur und persönlichem
             Ansprechpartner. Für WEGs, Eigentümer und Bauträger in München und
             Umgebung.

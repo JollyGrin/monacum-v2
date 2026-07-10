@@ -13,7 +13,7 @@ export function WEGHero() {
             WEG-Verwaltung
           </p>
           
-          <h1 className="font-serif text-4xl font-medium tracking-tight text-foreground sm:text-5xl lg:text-6xl leading-[1.1] text-balance">
+          <h1 lang="de" className="font-serif text-3xl font-medium tracking-tight text-foreground sm:text-4xl md:text-5xl lg:text-6xl leading-[1.1] text-balance hyphens-auto break-words">
             Professionelle Verwaltung für Ihre Eigentümergemeinschaft
           </h1>
           
