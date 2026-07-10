@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import { Inter, Playfair_Display } from 'next/font/google'
+import { ConsentBanner } from '@/components/consent/consent-banner'
 import './globals.css'
 
 const inter = Inter({
@@ -108,6 +109,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessJsonLd) }}
         />
         {children}
+        <ConsentBanner />
       </body>
     </html>
   )

@@ -128,3 +128,21 @@ Aktualisierung der Datenschutzerklärung und die Entscheidung über einen Consen
 2. **OpenFreeMap** — die dekorative Karte lädt weiterhin vor Consent (Entscheidung „vorerst so
    belassen"). Für volle Rechtssicherheit später ersetzen (empfohlen) oder hinter Consent-Banner legen.
 3. **Hosting-Logs & E-Mail-Provider** — bei GitHub bzw. dem Domain-/Mail-Anbieter erfragen.
+
+---
+
+## Nachtrag (Stand: 2026-07-10) — Consent-Umsetzung
+
+1. **Korrektur:** Die Intro-Animation (3D-Logo) lud ihre Environment-Map bisher zur Laufzeit
+   von einem Drittanbieter-CDN (`raw.githack.com` / `raw.githubusercontent.com`,
+   drei-Preset „night"). Dieser Request war in der obigen Analyse nicht erfasst. Die Datei
+   wird jetzt **selbst gehostet** (`public/hdri/night.exr`, extrahiert aus `@pmndrs/assets`) —
+   es findet kein CDN-Request mehr statt.
+2. **Consent-Banner umgesetzt** (Option 2 aus Abschnitt 7): Kategorien Notwendig / Analytics /
+   Marketing / Externe Medien; nur „Externe Medien" (OpenFreeMap-Karte) ist belegt. Die Karte
+   lädt erst nach Einwilligung; bis dahin wird eine lokale Hintergrundgrafik gezeigt.
+   Widerruf über „Cookie-Einstellungen" im Footer.
+3. **Neuer Storage-Eintrag:** `monacum-consent` (localStorage, first-party) speichert die
+   Banner-Auswahl. Funktional erforderlich, § 25 Abs. 2 Nr. 2 TDDDG — **kein Cookie**.
+4. Damit gilt: **Keine Requests an Dritte vor Einwilligung.** Die Datenschutzerklärung
+   (`app/datenschutz/page.tsx`) wurde entsprechend dem realen Setup neu geschrieben.

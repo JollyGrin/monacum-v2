@@ -168,7 +168,9 @@ export function Logo3D({ onComplete, holdMs = 2500, exitMs = 900 }: Logo3DProps)
           <Suspense fallback={null}>
             <SpinningLogo />
             <ParticleField />
-            <Environment preset="night" />
+            {/* Self-hosted environment map (extracted from @pmndrs/assets) –
+                the drei presets would fetch it from a third-party CDN at runtime. */}
+            <Environment files={`${basePath}/hdri/night.exr`} />
           </Suspense>
         </Canvas>
       </div>

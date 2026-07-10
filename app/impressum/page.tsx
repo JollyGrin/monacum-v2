@@ -29,7 +29,7 @@ export default function ImpressumPage() {
             </address>
 
             <h2 className="font-serif text-xl font-medium text-foreground mt-8">
-              Vertreten durch die Geschäftsführer
+              Vertreten durch die Geschäftsführer:
             </h2>
             <p className="text-muted-foreground leading-relaxed mt-4">
               Michael Werner Hödl<br />
@@ -89,7 +89,7 @@ export default function ImpressumPage() {
             </p>
             <p className="text-muted-foreground leading-relaxed mt-4">
               Die berufsrechtlichen Regelungen sind über die vom Bundesministerium der
-              Justiz betriebene Website „Gesetze im Internet" abrufbar.
+              Justiz betriebene Website „Gesetze im Internet“ abrufbar.
             </p>
 
             <h2 className="font-serif text-xl font-medium text-foreground mt-8">
