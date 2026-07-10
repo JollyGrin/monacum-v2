@@ -4,6 +4,8 @@ import Link from "next/link";
 import dynamic from "next/dynamic";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
+import { useConsentFor } from "@/hooks/use-consent";
+import { MapConsentFallback } from "./map-consent-fallback";
 
 // maplibre-gl is heavy – load it after the critical content.
 const IsometricMap = dynamic(
@@ -17,10 +19,14 @@ const IsometricMap = dynamic(
 );
 
 export function HeroSection() {
+  // The map loads tiles from tiles.openfreemap.org – it must not mount
+  // before the visitor consents to external media (§ 25 Abs. 1 TDDDG).
+  const hasMapConsent = useConsentFor("externalMedia");
+
   return (
     <section className="relative min-h-[85vh] flex items-center overflow-hidden">
-      {/* Isometric 3D map background */}
-      <IsometricMap />
+      {/* Isometric 3D map background – consent-gated */}
+      {hasMapConsent ? <IsometricMap /> : <MapConsentFallback />}
 
       <div className="relative mx-auto max-w-7xl px-6 py-24 lg:px-8 lg:py-32 z-10">
         <div className="max-w-3xl">
