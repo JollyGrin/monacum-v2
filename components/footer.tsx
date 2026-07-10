@@ -1,6 +1,7 @@
 import Link from "next/link"
 import Image from "next/image"
 import { ExternalLink } from "lucide-react"
+import { CookieSettingsLink } from "@/components/consent/cookie-settings-link"
 
 const basePath = process.env.NEXT_PUBLIC_BASE_PATH || ""
 
@@ -108,6 +109,9 @@ export function Footer() {
                   </Link>
                 </li>
               ))}
+              <li>
+                <CookieSettingsLink className="text-left text-sm text-muted-foreground hover:text-foreground transition-colors" />
+              </li>
               <li>
                 <a
                   href="https://casavi.de"
