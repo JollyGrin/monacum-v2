@@ -26,7 +26,7 @@ const directors = [
   {
     name: "Maximilian Reichenbächer",
     initials: "MR",
-    image: "/max.webp",
+    image: "/bildnr-1.webp",
     background: [
       "Erfahrung in der Projektentwicklung",
       "Mandantenbetreuung bei einem geschlossenen Fondsverwalter",
@@ -38,7 +38,7 @@ const directors = [
   {
     name: "Michael Hödl",
     initials: "MH",
-    image: "/michi.webp",
+    image: "/bildnr-2.webp",
     background: [
       "Immobilienfachwirt (IHK)",
       "Ausbilder",

@@ -13,12 +13,12 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select"
-import { CheckCircle2 } from "lucide-react"
+import { MailtoFallback } from "@/components/shared/mailto-fallback"
 
 type InquiryType = "weg" | "miethaus" | "sondereigentum" | "bautraeger" | "sonstiges" | ""
 
 export function ContactForm() {
-  const [submitted, setSubmitted] = useState(false)
+  const [composed, setComposed] = useState<{ subject: string; body: string } | null>(null)
   const [inquiryType, setInquiryType] = useState<InquiryType>("")
   const [formData, setFormData] = useState({
     name: "",
@@ -96,27 +96,18 @@ export function ContactForm() {
     const subject = `Anfrage über die Website${
       inquiryType ? ` – ${inquiryLabels[inquiryType]}` : ""
     }`
+    const body = lines.join("\n")
     window.location.href = `mailto:info@monacum-immobilien.de?subject=${encodeURIComponent(
       subject
-    )}&body=${encodeURIComponent(lines.join("\n"))}`
+    )}&body=${encodeURIComponent(body)}`
 
-    setSubmitted(true)
+    setComposed({ subject, body })
   }
 
-  if (submitted) {
+  if (composed) {
     return (
-      <div className="bg-card rounded-lg p-8 lg:p-12 border border-border text-center">
-        <div className="mx-auto w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mb-6">
-          <CheckCircle2 className="h-8 w-8 text-primary" />
-        </div>
-        <h2 className="font-serif text-2xl font-medium text-foreground">
-          Vielen Dank für Ihre Anfrage
-        </h2>
-        <p className="mt-4 text-muted-foreground leading-relaxed">
-          Wir haben Ihre Nachricht erhalten und melden uns zeitnah bei Ihnen.
-          Bei dringenden Anliegen erreichen Sie uns auch telefonisch unter{" "}
-          <span className="whitespace-nowrap">089 890467430</span>.
-        </p>
+      <div className="bg-card rounded-lg p-8 lg:p-10 border border-border">
+        <MailtoFallback subject={composed.subject} body={composed.body} />
       </div>
     )
   }
