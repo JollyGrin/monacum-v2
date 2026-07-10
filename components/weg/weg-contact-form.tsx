@@ -13,11 +13,11 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select"
-import { CheckCircle2 } from "lucide-react"
 import { NextStepsList } from "@/components/shared/next-steps"
+import { MailtoFallback } from "@/components/shared/mailto-fallback"
 
 export function WEGContactForm() {
-  const [submitted, setSubmitted] = useState(false)
+  const [composed, setComposed] = useState<{ subject: string; body: string } | null>(null)
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -47,27 +47,22 @@ export function WEGContactForm() {
       lines.push(`Gewünschter Starttermin: ${formData.desiredStart}`)
     if (formData.message) lines.push("", "Nachricht:", formData.message)
 
+    const subject = "Angebotsanfrage WEG-Verwaltung über die Website"
+    const body = lines.join("\n")
     window.location.href = `mailto:info@monacum-immobilien.de?subject=${encodeURIComponent(
-      "Angebotsanfrage WEG-Verwaltung über die Website"
-    )}&body=${encodeURIComponent(lines.join("\n"))}`
+      subject
+    )}&body=${encodeURIComponent(body)}`
 
-    setSubmitted(true)
+    setComposed({ subject, body })
   }
 
-  if (submitted) {
+  if (composed) {
     return (
       <section id="anfrage" className="py-20 lg:py-28 bg-primary/5">
-        <div className="mx-auto max-w-2xl px-6 lg:px-8 text-center">
-          <div className="mx-auto w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mb-6">
-            <CheckCircle2 className="h-8 w-8 text-primary" />
+        <div className="mx-auto max-w-2xl px-6 lg:px-8">
+          <div className="bg-card rounded-lg p-8 border border-border">
+            <MailtoFallback subject={composed.subject} body={composed.body} />
           </div>
-          <h2 className="font-serif text-3xl font-medium tracking-tight text-foreground">
-            Vielen Dank für Ihre Anfrage
-          </h2>
-          <p className="mt-4 text-lg text-muted-foreground">
-            Wir haben Ihre Nachricht erhalten und melden uns zeitnah bei Ihnen.
-            Bei dringenden Anliegen erreichen Sie uns auch telefonisch.
-          </p>
         </div>
       </section>
     )

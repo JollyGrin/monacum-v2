@@ -12,7 +12,7 @@ const directors = [
     description:
       "Mit seinem Hintergrund im Finanz- und Immobilienbereich bringt Maximilian Reichenbächer strukturiertes Denken, analytische Stärke und ein gutes Verständnis für Eigentümer- und Investoreninteressen in die Verwaltung ein.",
     initials: "MR",
-    image: "/max.webp",
+    image: "/bildnr-1.webp",
   },
   {
     name: "Michael Hödl",
@@ -20,7 +20,7 @@ const directors = [
     description:
       "Michael Hödl verfügt über langjährige Erfahrung in der Immobilienverwaltung und bringt umfassende praktische Expertise in die operative Betreuung von Immobilien ein.",
     initials: "MH",
-    image: "/michi.webp",
+    image: "/bildnr-2.webp",
   },
 ];
 

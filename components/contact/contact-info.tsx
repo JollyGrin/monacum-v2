@@ -1,4 +1,7 @@
+import Image from "next/image"
 import { MapPin, Phone, Mail, Clock } from "lucide-react"
+
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH || ""
 
 export function ContactInfo() {
   return (
@@ -81,6 +84,22 @@ export function ContactInfo() {
           VDIV Bayern – Verband der Immobilienverwalter<br />
           Haus & Grund München
         </p>
+        <div className="mt-4 flex flex-wrap items-center gap-6">
+          <Image
+            src={`${basePath}/vdiv-logo.webp`}
+            alt="VDIV Bayern – Verband der Immobilienverwalter"
+            width={136}
+            height={81}
+            className="h-10 w-auto object-contain"
+          />
+          <Image
+            src={`${basePath}/huidgrund.webp`}
+            alt="Haus & Grund München"
+            width={160}
+            height={21}
+            className="h-5 w-auto object-contain"
+          />
+        </div>
       </div>
     </div>
   )

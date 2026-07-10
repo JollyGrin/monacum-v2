@@ -55,7 +55,7 @@ export function WEGFocusSection() {
           <div className="relative">
             <div className="aspect-[4/3] rounded-lg border border-border overflow-hidden">
               <Image
-                src={`${basePath}/atdesk.webp`}
+                src={`${basePath}/bildnr-3.webp`}
                 alt="WEG-Verwaltung mit Kompetenz"
                 width={1200}
                 height={900}
