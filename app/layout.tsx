@@ -69,9 +69,9 @@ const localBusinessJsonLd = {
   email: 'info@monacum-immobilien.de',
   address: {
     '@type': 'PostalAddress',
-    streetAddress: 'Boschstr. 12',
-    postalCode: '82178',
-    addressLocality: 'Puchheim',
+    streetAddress: 'Hesseloherstraße 1, Rückgebäude',
+    postalCode: '80802',
+    addressLocality: 'München',
     addressCountry: 'DE',
   },
   areaServed: {
