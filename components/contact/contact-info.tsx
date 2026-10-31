@@ -11,7 +11,7 @@ export function ContactInfo() {
       </h2>
       <p className="mt-4 text-muted-foreground leading-relaxed">
         Erreichen Sie uns telefonisch, per E-Mail oder besuchen Sie uns in unserem 
-        Büro in Puchheim.
+        Büro in München.
       </p>
 
       <div className="mt-10 space-y-8">
@@ -23,8 +23,8 @@ export function ContactInfo() {
             <h3 className="font-medium text-foreground">Adresse</h3>
             <address className="mt-1 not-italic text-muted-foreground leading-relaxed">
               Monacum Immobilienverwaltung<br />
-              Boschstr. 12<br />
-              82178 Puchheim
+              Hesseloherstraße 1, Rückgebäude<br />
+              80802 München
             </address>
           </div>
         </div>

@@ -26,8 +26,8 @@ export function ContactSection() {
                 <div>
                   <h3 className="font-medium text-foreground">Adresse</h3>
                   <p className="mt-1 text-muted-foreground">
-                    Boschstr. 12<br />
-                    82178 Puchheim
+                    Hesseloherstraße 1, Rückgebäude<br />
+                    80802 München
                   </p>
                 </div>
               </div>

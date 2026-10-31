@@ -50,8 +50,8 @@ export function Footer() {
               Monacum Immobilienverwaltung GmbH
             </p>
             <address className="mt-6 not-italic text-sm text-muted-foreground leading-relaxed">
-              Boschstr. 12<br />
-              82178 Puchheim<br />
+              Hesseloherstraße 1, Rückgebäude<br />
+              80802 München<br />
               <span className="mt-4 block">
                 Tel: <a href="tel:+4989890467430" className="hover:text-foreground transition-colors">089 890467430</a>
               </span>

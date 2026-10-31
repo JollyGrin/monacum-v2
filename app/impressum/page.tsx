@@ -23,8 +23,8 @@ export default function ImpressumPage() {
             </h2>
             <address className="not-italic text-muted-foreground leading-relaxed mt-4">
               Monacum Immobilienverwaltung GmbH<br />
-              Boschstr. 12<br />
-              82178 Puchheim<br />
+              Hesseloherstraße 1, Rückgebäude<br />
+              80802 München<br />
               Deutschland
             </address>
 
